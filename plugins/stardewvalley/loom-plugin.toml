@@ -1,0 +1,29 @@
+# Official Loom plugin — Stardew Valley.
+[plugin]
+id = "github.com/enrell/loom/plugins/stardewvalley"
+name = "Stardew Valley"
+version = "0.1.0"
+kind = "game"
+description = "Game support for Stardew Valley: detection and mod layout (Mods/<mod>). Mods run through SMAPI."
+authors = ["Loom contributors"]
+license = "MIT"
+homepage = "https://github.com/enrell/loom/tree/main/plugins/stardewvalley"
+
+[game]
+id = "stardewvalley"
+name = "Stardew Valley"
+nexus_domain = "stardewvalley"
+executables = [
+  { id = "smapi", name = "SMAPI", path = "StardewModdingAPI.exe", default = true, optional = true },
+  { id = "vanilla", name = "Stardew Valley", path = "Stardew Valley.exe" },
+]
+
+[game.detect]
+steam = [413150]
+gog = ["1453375253"]
+requires = ["Stardew Valley.dll"]
+
+[game.mods]
+data_dir = "Mods"
+data_markers = ["manifest.json"]
+fallback = "package"

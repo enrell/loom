@@ -1,0 +1,33 @@
+[package]
+name = "loom-core"
+description = "Loom's engine: game instances, mods, profiles, load order, diagnostics, launching through openvfs, plugins and marketplace."
+version.workspace = true
+edition.workspace = true
+license.workspace = true
+rust-version.workspace = true
+repository.workspace = true
+
+[dependencies]
+loom-plugin.workspace = true
+serde.workspace = true
+serde_json.workspace = true
+toml.workspace = true
+thiserror.workspace = true
+sha2.workspace = true
+dirs = "7"
+flate2 = "1"
+tar = "0.4"
+ureq = "3"
+zip = { version = "9", default-features = false, features = ["deflate-flate2-zlib-rs", "deflate64", "bzip2", "lzma"] }
+# The virtual file system. Sibling checkout for now (see README: Building).
+openvfs = { package = "open-vfs", path = "../../../openvfs/crates/openvfs" }
+
+[target.'cfg(windows)'.dependencies]
+openvfs-winfsp = { path = "../../../openvfs/crates/openvfs-winfsp" }
+winreg = "0.56"
+
+[dev-dependencies]
+tempfile.workspace = true
+
+[lints]
+workspace = true

@@ -1,0 +1,27 @@
+# Official Loom plugin — RimWorld.
+[plugin]
+id = "github.com/enrell/loom/plugins/rimworld"
+name = "RimWorld"
+version = "0.1.0"
+kind = "game"
+description = "Game support for RimWorld: detection and mod layout (Mods/<mod>). Activate mods in the game's Mods menu."
+authors = ["Loom contributors"]
+license = "MIT"
+homepage = "https://github.com/enrell/loom/tree/main/plugins/rimworld"
+
+[game]
+id = "rimworld"
+name = "RimWorld"
+nexus_domain = "rimworld"
+executables = [
+  { id = "rimworld", name = "RimWorld", path = "RimWorldWin64.exe", default = true },
+]
+
+[game.detect]
+steam = [294100]
+requires = ["RimWorldWin64.exe"]
+
+[game.mods]
+data_dir = "Mods"
+data_markers = ["About"]
+fallback = "package"

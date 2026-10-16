@@ -1,0 +1,12 @@
+id = "github.com/enrell/loom/plugins/starfield"
+name = "Starfield"
+kind = "game"
+games = ["starfield"]
+description = "Game support for Starfield: detection, mod layout, load order, script extender and tools."
+tags = ["official", "load-order", "tools"]
+
+[[versions]]
+version = "0.1.0"
+ref = "plugins/starfield/v0.1.0"
+sum = "sha256:2be5a28c872ad18956cc4060e9c572943839399451ec0f175f3e25504d20e48e"
+reviewed = "2026-10-15"

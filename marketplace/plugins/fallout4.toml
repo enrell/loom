@@ -1,0 +1,12 @@
+id = "github.com/enrell/loom/plugins/fallout4"
+name = "Fallout 4"
+kind = "game"
+games = ["fallout4"]
+description = "Game support for Fallout 4: detection, mod layout, load order, script extender and tools."
+tags = ["official", "load-order", "tools"]
+
+[[versions]]
+version = "0.1.0"
+ref = "plugins/fallout4/v0.1.0"
+sum = "sha256:8721b9c76efa18d359005ff065882f3386bf508234cc86aac6bb0a6764d7d753"
+reviewed = "2026-10-15"

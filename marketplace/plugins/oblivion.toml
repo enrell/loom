@@ -1,0 +1,12 @@
+id = "github.com/enrell/loom/plugins/oblivion"
+name = "The Elder Scrolls IV: Oblivion"
+kind = "game"
+games = ["oblivion"]
+description = "Game support for The Elder Scrolls IV: Oblivion: detection, mod layout, load order, script extender and tools."
+tags = ["official", "load-order", "tools"]
+
+[[versions]]
+version = "0.1.0"
+ref = "plugins/oblivion/v0.1.0"
+sum = "sha256:35cdc93bb7a30d3a1bd6156accc6b94305305b9d56927f60c5b3978657466c10"
+reviewed = "2026-10-15"

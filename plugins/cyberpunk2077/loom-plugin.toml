@@ -1,0 +1,29 @@
+# Official Loom plugin — Cyberpunk 2077.
+[plugin]
+id = "github.com/enrell/loom/plugins/cyberpunk2077"
+name = "Cyberpunk 2077"
+version = "0.1.0"
+kind = "game"
+description = "Game support for Cyberpunk 2077: detection and mod layout. Loose .archive files go to archive/pc/mod; frameworks (CET, RED4ext, redscript) keep their folders."
+authors = ["Loom contributors"]
+license = "MIT"
+homepage = "https://github.com/enrell/loom/tree/main/plugins/cyberpunk2077"
+
+[game]
+id = "cyberpunk2077"
+name = "Cyberpunk 2077"
+nexus_domain = "cyberpunk2077"
+executables = [
+  { id = "cyberpunk", name = "Cyberpunk 2077", path = "bin/x64/Cyberpunk2077.exe", default = true },
+]
+
+[game.detect]
+steam = [1091500]
+gog = ["1423049311"]
+requires = ["bin/x64/Cyberpunk2077.exe"]
+
+[game.mods]
+data_dir = "archive/pc/mod"
+data_markers = ["*.archive", "*.xl"]
+root_markers = ["archive", "bin", "r6", "red4ext", "engine", "mods"]
+fallback = "data"

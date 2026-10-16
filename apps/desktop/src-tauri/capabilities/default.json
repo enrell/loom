@@ -1,0 +1,7 @@
+{
+  "identifier": "default",
+  "description": "The app UI: core events, file dialogs and opening links. The embedded Nexus webview gets nothing.",
+  "windows": ["main"],
+  "webviews": ["ui"],
+  "permissions": ["core:default", "dialog:allow-open", "opener:allow-open-url"]
+}

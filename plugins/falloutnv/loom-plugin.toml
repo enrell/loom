@@ -1,0 +1,50 @@
+# Official Loom plugin — Fallout: New Vegas.
+[plugin]
+id = "github.com/enrell/loom/plugins/falloutnv"
+name = "Fallout: New Vegas"
+version = "0.1.0"
+kind = "game"
+description = "Game support for Fallout: New Vegas: detection, mod layout, load order, script extender and tools."
+authors = ["Loom contributors"]
+license = "MIT"
+homepage = "https://github.com/enrell/loom/tree/main/plugins/falloutnv"
+
+[game]
+id = "falloutnv"
+name = "Fallout: New Vegas"
+nexus_domain = "newvegas"
+executables = [
+  { id = "falloutnv", name = "Fallout: New Vegas", path = "FalloutNV.exe", default = true },
+  { id = "nvse", name = "NVSE", path = "nvse_loader.exe", optional = true },
+]
+
+[game.detect]
+steam = [22380]
+registry = [{ key = 'HKLM\SOFTWARE\WOW6432Node\Bethesda Softworks\FalloutNV', value = "installed path" }]
+requires = ["FalloutNV.exe", "Data"]
+
+[game.mods]
+data_dir = "Data"
+data_markers = ["*.esp", "*.esm", "meshes", "textures", "scripts", "interface", "sound", "music", "strings", "seq", "video", "shaders", "materials", "*.bsa", "nvse", "menus", "config"]
+root_markers = ["nvse_loader.exe", "nvse_*.dll", "d3d9.dll"]
+fallback = "data"
+
+[game.load_order]
+format = "plugins-txt"
+plugins_file = "%LOCALAPPDATA%/FalloutNV/plugins.txt"
+loadorder_file = "%LOCALAPPDATA%/FalloutNV/loadorder.txt"
+extensions = ["esm", "esp"]
+star_prefix = false
+implicit = ["FalloutNV.esm"]
+max_plugins = 255
+header = "tes4"
+timestamps = true
+
+[[tools]]
+id = "fnvedit"
+name = "FNVEdit"
+description = "Plugin editor and conflict detector (xEdit)."
+exe = ["FNVEdit.exe", "xEdit.exe"]
+homepage = "https://www.nexusmods.com/newvegas/mods/34703"
+args = ["-D:{game}/Data"]
+agent_notes = """xEdit edits plugins directly. Run it inside the view so it sees the modded load order; save patches (e.g. a merged patch) and they land in the generated mod, which Loom keeps above the mods it patches."""

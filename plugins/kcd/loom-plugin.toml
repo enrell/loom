@@ -1,0 +1,27 @@
+# Official Loom plugin — Kingdom Come: Deliverance.
+[plugin]
+id = "github.com/enrell/loom/plugins/kcd"
+name = "Kingdom Come: Deliverance"
+version = "0.1.0"
+kind = "game"
+description = "Game support for Kingdom Come: Deliverance: detection and mod layout (Mods/<mod>). "
+authors = ["Loom contributors"]
+license = "MIT"
+homepage = "https://github.com/enrell/loom/tree/main/plugins/kcd"
+
+[game]
+id = "kcd"
+name = "Kingdom Come: Deliverance"
+nexus_domain = "kingdomcomedeliverance"
+executables = [
+  { id = "kcd", name = "Kingdom Come: Deliverance", path = "Bin/Win64/KingdomCome.exe", default = true },
+]
+
+[game.detect]
+steam = [379430]
+requires = ["Bin/Win64/KingdomCome.exe"]
+
+[game.mods]
+data_dir = "Mods"
+data_markers = ["mod.manifest"]
+fallback = "package"

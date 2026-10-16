@@ -1,0 +1,52 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  rust:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      # loom-core uses openvfs from a sibling checkout (see README → Building).
+      - name: Check out openvfs
+        shell: bash
+        run: git clone --depth 1 https://github.com/enrell/openvfs ../openvfs
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          components: rustfmt, clippy
+      - uses: Swatinem/rust-cache@v2
+      - run: cargo fmt --all --check
+      - run: cargo clippy --workspace --all-targets -- -D warnings
+      - run: cargo test --workspace
+      - name: Validate official plugins and the marketplace
+        shell: bash
+        run: |
+          for d in plugins/*/; do ./target/debug/loom plugin check "$d"; done
+          ./target/debug/loom market validate marketplace
+
+  desktop:
+    runs-on: windows-latest
+    defaults:
+      run:
+        working-directory: apps/desktop
+    steps:
+      - uses: actions/checkout@v4
+      - shell: bash
+        run: git clone --depth 1 https://github.com/enrell/openvfs ../../../openvfs
+        working-directory: .
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: apps/desktop/src-tauri
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci
+      - run: npm run check
+      - run: npm run build

@@ -1,0 +1,85 @@
+# Official Loom plugin — The Elder Scrolls V: Skyrim Special Edition.
+[plugin]
+id = "github.com/enrell/loom/plugins/skyrimse"
+name = "The Elder Scrolls V: Skyrim Special Edition"
+version = "0.1.0"
+kind = "game"
+description = "Game support for The Elder Scrolls V: Skyrim Special Edition: detection, mod layout, load order, script extender and tools."
+authors = ["Loom contributors"]
+license = "MIT"
+homepage = "https://github.com/enrell/loom/tree/main/plugins/skyrimse"
+
+[game]
+id = "skyrimse"
+name = "The Elder Scrolls V: Skyrim Special Edition"
+nexus_domain = "skyrimspecialedition"
+executables = [
+  { id = "skyrim", name = "Skyrim Special Edition", path = "SkyrimSE.exe", default = true },
+  { id = "skse", name = "SKSE", path = "skse64_loader.exe", optional = true },
+  { id = "launcher", name = "Skyrim Launcher", path = "SkyrimSELauncher.exe", optional = true },
+]
+
+[game.detect]
+steam = [489830]
+gog = ["1711230643"]
+registry = [{ key = 'HKLM\SOFTWARE\WOW6432Node\Bethesda Softworks\Skyrim Special Edition', value = "installed path" }]
+requires = ["SkyrimSE.exe", "Data"]
+
+[game.mods]
+data_dir = "Data"
+data_markers = ["*.esp", "*.esm", "meshes", "textures", "scripts", "interface", "sound", "music", "strings", "seq", "video", "shaders", "materials", "*.bsa", "*.esl", "skse", "lodsettings", "grass", "shadersfx", "calientetools", "dyndolod", "nemesis_engine", "netscriptframework", "platform"]
+root_markers = ["skse64_loader.exe", "skse64_*.dll", "enbseries", "enblocal.ini", "d3d11.dll", "d3dcompiler_46e.dll", "dxgi.dll", "reshade-shaders"]
+fallback = "data"
+
+[game.load_order]
+format = "plugins-txt"
+plugins_file = "%LOCALAPPDATA%/Skyrim Special Edition/Plugins.txt"
+loadorder_file = "%LOCALAPPDATA%/Skyrim Special Edition/loadorder.txt"
+extensions = ["esm", "esp", "esl"]
+star_prefix = true
+implicit = ["Skyrim.esm", "Update.esm", "Dawnguard.esm", "HearthFires.esm", "Dragonborn.esm"]
+implicit_file = "{game}/Skyrim.ccc"
+light_extension = "esl"
+max_plugins = 254
+header = "tes4"
+
+[[tools]]
+id = "xtranslator"
+name = "xTranslator"
+description = "Translates plugin strings (ESP/ESM/ESL, MCM, PEX)."
+exe = ["xTranslator.exe"]
+homepage = "https://www.nexusmods.com/skyrimspecialedition/mods/134"
+agent_notes = """Translations it saves go to the generated mod. For a full translation pass prefer SSE Auto Translator, which matches every installed mod with its published translation."""
+
+[[tools]]
+id = "sse-at"
+name = "SSE Auto Translator"
+description = "Finds and applies published translations for every installed mod."
+exe = ["SSE-AT.exe"]
+homepage = "https://www.nexusmods.com/skyrimspecialedition/mods/111491"
+agent_notes = """Run it inside the view: it scans the merged Data folder, finds each mod's translation on Nexus Mods and writes translated plugins/strings; everything it writes becomes the 'Generated - SSE Auto Translator' mod. Keep that mod above the mods it translates (index 0 is safest) and run loom_doctor afterwards."""
+
+[[tools]]
+id = "sseedit"
+name = "SSEEdit"
+description = "Plugin editor and conflict detector (xEdit)."
+exe = ["SSEEdit.exe", "xEdit.exe"]
+homepage = "https://www.nexusmods.com/skyrimspecialedition/mods/164"
+args = ["-D:{game}/Data"]
+agent_notes = """xEdit edits plugins directly. Run it inside the view so it sees the modded load order; save patches (e.g. a merged patch) and they land in the generated mod, which Loom keeps above the mods it patches."""
+
+[[tools]]
+id = "bodyslide"
+name = "BodySlide"
+description = "Builds body and outfit meshes."
+exe = ["BodySlide x64.exe"]
+homepage = "https://www.nexusmods.com/skyrimspecialedition/mods/201"
+agent_notes = """Built meshes go to the generated mod; rebuild after changing body or outfit mods."""
+
+[[tools]]
+id = "nemesis"
+name = "Nemesis Unlimited Behavior Engine"
+description = "Generates animation behavior files."
+exe = ["Nemesis Unlimited Behavior Engine.exe"]
+homepage = "https://www.nexusmods.com/skyrimspecialedition/mods/60033"
+agent_notes = """Re-run after adding or removing animation mods; its output (generated mod) must stay enabled."""

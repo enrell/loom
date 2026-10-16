@@ -1,0 +1,12 @@
+id = "github.com/enrell/loom/plugins/skyrimse"
+name = "The Elder Scrolls V: Skyrim Special Edition"
+kind = "game"
+games = ["skyrimse"]
+description = "Game support for The Elder Scrolls V: Skyrim Special Edition: detection, mod layout, load order, script extender and tools."
+tags = ["official", "load-order", "tools"]
+
+[[versions]]
+version = "0.1.0"
+ref = "plugins/skyrimse/v0.1.0"
+sum = "sha256:bdd889ec48a5dab0ee113f11404696e14c2d7085f7e081b831e6bdc1a20081cd"
+reviewed = "2026-10-15"

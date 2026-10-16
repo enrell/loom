@@ -1,0 +1,37 @@
+# Official Loom plugin — The Witcher 3: Wild Hunt.
+[plugin]
+id = "github.com/enrell/loom/plugins/witcher3"
+name = "The Witcher 3: Wild Hunt"
+version = "0.1.0"
+kind = "game"
+description = "Game support for The Witcher 3: Wild Hunt: detection and mod layout (Mods/<mod>). "
+authors = ["Loom contributors"]
+license = "MIT"
+homepage = "https://github.com/enrell/loom/tree/main/plugins/witcher3"
+
+[game]
+id = "witcher3"
+name = "The Witcher 3: Wild Hunt"
+nexus_domain = "witcher3"
+executables = [
+  { id = "witcher3", name = "The Witcher 3", path = "bin/x64/witcher3.exe", default = true },
+  { id = "witcher3-dx12", name = "The Witcher 3 (DirectX 12)", path = "bin/x64_dx12/witcher3.exe", optional = true },
+]
+
+[game.detect]
+steam = [292030]
+folder_names = ["The Witcher 3", "The Witcher 3 Wild Hunt GOTY"]
+requires = ["bin/x64/witcher3.exe"]
+
+[game.mods]
+data_dir = "Mods"
+data_markers = ["content"]
+fallback = "package"
+
+[[tools]]
+id = "scriptmerger"
+name = "Script Merger"
+description = "Merges script conflicts between mods."
+exe = ["WitcherScriptMerger.exe"]
+homepage = "https://www.nexusmods.com/witcher3/mods/484"
+agent_notes = """Merged scripts go to the generated mod (mod0000_MergedFiles); keep it at the top and re-run after adding script mods."""

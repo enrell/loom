@@ -1,0 +1,12 @@
+id = "github.com/enrell/loom/plugins/valheim"
+name = "Valheim"
+kind = "game"
+games = ["valheim"]
+description = "Game support for Valheim: detection and mod layout. BepInEx plugins go to BepInEx/plugins; install BepInEx itself as a mod first."
+tags = ["official"]
+
+[[versions]]
+version = "0.1.0"
+ref = "plugins/valheim/v0.1.0"
+sum = "sha256:07ad2c95f56cc1c265c9a7aae2f8dc87b778365d556c463510df60a4ee54156c"
+reviewed = "2026-10-15"

@@ -1,0 +1,12 @@
+id = "github.com/enrell/loom/plugins/fallout3"
+name = "Fallout 3"
+kind = "game"
+games = ["fallout3"]
+description = "Game support for Fallout 3: detection, mod layout, load order, script extender and tools."
+tags = ["official", "load-order", "tools"]
+
+[[versions]]
+version = "0.1.0"
+ref = "plugins/fallout3/v0.1.0"
+sum = "sha256:06b70d29efbde8230857d3c2cc4b342ddabf511ce1829b4e0b49ff2264bcaa85"
+reviewed = "2026-10-15"

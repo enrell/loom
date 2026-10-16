@@ -1,0 +1,12 @@
+id = "github.com/enrell/loom/plugins/rimworld"
+name = "RimWorld"
+kind = "game"
+games = ["rimworld"]
+description = "Game support for RimWorld: detection and mod layout (Mods/<mod>). Activate mods in the game's Mods menu."
+tags = ["official"]
+
+[[versions]]
+version = "0.1.0"
+ref = "plugins/rimworld/v0.1.0"
+sum = "sha256:2d76d76f60ac10b98cb5399f98c85d346f993baf39b160e535ccf1944864ecff"
+reviewed = "2026-10-15"

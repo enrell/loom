@@ -1,0 +1,12 @@
+id = "github.com/enrell/loom/plugins/witcher3"
+name = "The Witcher 3: Wild Hunt"
+kind = "game"
+games = ["witcher3"]
+description = "Game support for The Witcher 3: Wild Hunt: detection and mod layout (Mods/<mod>). "
+tags = ["official", "tools"]
+
+[[versions]]
+version = "0.1.0"
+ref = "plugins/witcher3/v0.1.0"
+sum = "sha256:669124fd9a18a62c6afdf9d4e6bd712ba66b556cd6e8253af6e5c4f8fb150228"
+reviewed = "2026-10-15"

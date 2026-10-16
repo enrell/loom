@@ -1,0 +1,12 @@
+id = "github.com/enrell/loom/plugins/stardewvalley"
+name = "Stardew Valley"
+kind = "game"
+games = ["stardewvalley"]
+description = "Game support for Stardew Valley: detection and mod layout (Mods/<mod>). Mods run through SMAPI."
+tags = ["official"]
+
+[[versions]]
+version = "0.1.0"
+ref = "plugins/stardewvalley/v0.1.0"
+sum = "sha256:1bb92430a992cb039cfd8a1bc14b5b8242d96fc3389ae11180d881ce02afe50d"
+reviewed = "2026-10-15"

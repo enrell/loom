@@ -1,0 +1,28 @@
+# Official Loom plugin — Hogwarts Legacy.
+[plugin]
+id = "github.com/enrell/loom/plugins/hogwartslegacy"
+name = "Hogwarts Legacy"
+version = "0.1.0"
+kind = "game"
+description = "Game support for Hogwarts Legacy: detection and mod layout. Pak mods go to Phoenix/Content/Paks/~mods."
+authors = ["Loom contributors"]
+license = "MIT"
+homepage = "https://github.com/enrell/loom/tree/main/plugins/hogwartslegacy"
+
+[game]
+id = "hogwartslegacy"
+name = "Hogwarts Legacy"
+nexus_domain = "hogwartslegacy"
+executables = [
+  { id = "hogwarts", name = "Hogwarts Legacy", path = "HogwartsLegacy.exe", default = true },
+]
+
+[game.detect]
+steam = [990080]
+requires = ["HogwartsLegacy.exe"]
+
+[game.mods]
+data_dir = "Phoenix/Content/Paks/~mods"
+data_markers = ["*.pak", "*.utoc", "*.ucas"]
+root_markers = ["Phoenix"]
+fallback = "data"

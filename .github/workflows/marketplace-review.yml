@@ -1,0 +1,63 @@
+name: Marketplace review
+
+on:
+  pull_request:
+    paths: ["marketplace/**"]
+
+permissions:
+  contents: read
+  pull-requests: write
+
+jobs:
+  verify:
+    name: Verify entries and plugin hashes
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - shell: bash
+        run: git clone --depth 1 https://github.com/enrell/openvfs ../openvfs
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+      - run: cargo build -p loom-cli
+      - name: Validate the index
+        run: ./target/debug/loom market validate marketplace
+      - name: Download every changed plugin and verify its hash
+        shell: bash
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          home="$RUNNER_TEMP/loom-home"
+          ./target/debug/loom --home "$home" config set marketplace "$PWD/marketplace"
+          git fetch --depth 1 origin "${{ github.base_ref }}"
+          for f in $(git diff --name-only "origin/${{ github.base_ref }}" -- marketplace/plugins); do
+            [ -f "$f" ] || continue
+            game=$(sed -n 's/^games = \["\([^"]*\)".*/\1/p' "$f")
+            id=$(sed -n 's/^id = "\(.*\)"/\1/p' "$f")
+            echo "::group::$id"
+            ./target/debug/loom --home "$home" market install "$id"
+            echo "::endgroup::"
+          done
+
+  agent-review:
+    name: Agent review (safety, functionality, completeness)
+    needs: verify
+    runs-on: ubuntu-latest
+    env:
+      # Secrets aren't available to job-level `if`; skip the step instead
+      # (forks and repos without the secret just don't get the agent review).
+      HAS_KEY: ${{ secrets.ANTHROPIC_API_KEY != '' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: anthropics/claude-code-action@v1
+        if: env.HAS_KEY == 'true'
+        with:
+          anthropic_api_key: ${{ secrets.ANTHROPIC_API_KEY }}
+          prompt: |
+            Review this pull request to the Loom plugin marketplace.
+            For every plugin version it adds, fetch the plugin from its import path at the given ref
+            (https://github.com/<owner>/<repo>/tree/<ref>/<subdir>), read its loom-plugin.toml and README,
+            and answer every question in marketplace/REVIEW.md. Use docs/PLUGINS.md for the format.
+            Post one review comment with a section per checklist heading and a final verdict:
+            approve, request changes, or reject. Be concrete: quote the lines that need changes.

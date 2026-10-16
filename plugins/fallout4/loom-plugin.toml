@@ -1,0 +1,66 @@
+# Official Loom plugin — Fallout 4.
+[plugin]
+id = "github.com/enrell/loom/plugins/fallout4"
+name = "Fallout 4"
+version = "0.1.0"
+kind = "game"
+description = "Game support for Fallout 4: detection, mod layout, load order, script extender and tools."
+authors = ["Loom contributors"]
+license = "MIT"
+homepage = "https://github.com/enrell/loom/tree/main/plugins/fallout4"
+
+[game]
+id = "fallout4"
+name = "Fallout 4"
+nexus_domain = "fallout4"
+executables = [
+  { id = "fallout4", name = "Fallout 4", path = "Fallout4.exe", default = true },
+  { id = "f4se", name = "F4SE", path = "f4se_loader.exe", optional = true },
+  { id = "launcher", name = "Fallout 4 Launcher", path = "Fallout4Launcher.exe", optional = true },
+]
+
+[game.detect]
+steam = [377160]
+registry = [{ key = 'HKLM\SOFTWARE\WOW6432Node\Bethesda Softworks\Fallout4', value = "installed path" }]
+requires = ["Fallout4.exe", "Data"]
+
+[game.mods]
+data_dir = "Data"
+data_markers = ["*.esp", "*.esm", "meshes", "textures", "scripts", "interface", "sound", "music", "strings", "seq", "video", "shaders", "materials", "*.ba2", "*.esl", "f4se", "calientetools", "programs"]
+root_markers = ["f4se_loader.exe", "f4se_*.dll", "enbseries", "d3d11.dll", "dxgi.dll"]
+fallback = "data"
+
+[game.load_order]
+format = "plugins-txt"
+plugins_file = "%LOCALAPPDATA%/Fallout4/Plugins.txt"
+loadorder_file = "%LOCALAPPDATA%/Fallout4/loadorder.txt"
+extensions = ["esm", "esp", "esl"]
+star_prefix = true
+implicit = ["Fallout4.esm", "DLCRobot.esm", "DLCworkshop01.esm", "DLCCoast.esm", "DLCworkshop02.esm", "DLCworkshop03.esm", "DLCNukaWorld.esm", "DLCUltraHighResolution.esm"]
+implicit_file = "{game}/Fallout4.ccc"
+light_extension = "esl"
+max_plugins = 254
+header = "tes4"
+
+[[tools]]
+id = "xtranslator"
+name = "xTranslator"
+description = "Translates plugin strings."
+exe = ["xTranslator.exe"]
+homepage = "https://www.nexusmods.com/skyrimspecialedition/mods/134"
+
+[[tools]]
+id = "fo4edit"
+name = "FO4Edit"
+description = "Plugin editor and conflict detector (xEdit)."
+exe = ["FO4Edit.exe", "xEdit.exe"]
+homepage = "https://www.nexusmods.com/fallout4/mods/2737"
+args = ["-D:{game}/Data"]
+agent_notes = """xEdit edits plugins directly. Run it inside the view so it sees the modded load order; save patches (e.g. a merged patch) and they land in the generated mod, which Loom keeps above the mods it patches."""
+
+[[tools]]
+id = "bodyslide"
+name = "BodySlide"
+description = "Builds body and outfit meshes."
+exe = ["BodySlide x64.exe"]
+homepage = "https://www.nexusmods.com/fallout4/mods/25"

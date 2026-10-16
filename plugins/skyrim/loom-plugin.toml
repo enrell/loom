@@ -1,0 +1,50 @@
+# Official Loom plugin — The Elder Scrolls V: Skyrim.
+[plugin]
+id = "github.com/enrell/loom/plugins/skyrim"
+name = "The Elder Scrolls V: Skyrim"
+version = "0.1.0"
+kind = "game"
+description = "Game support for The Elder Scrolls V: Skyrim: detection, mod layout, load order, script extender and tools."
+authors = ["Loom contributors"]
+license = "MIT"
+homepage = "https://github.com/enrell/loom/tree/main/plugins/skyrim"
+
+[game]
+id = "skyrim"
+name = "The Elder Scrolls V: Skyrim"
+nexus_domain = "skyrim"
+executables = [
+  { id = "skyrim", name = "Skyrim", path = "TESV.exe", default = true },
+  { id = "skse", name = "SKSE", path = "skse_loader.exe", optional = true },
+]
+
+[game.detect]
+steam = [72850]
+registry = [{ key = 'HKLM\SOFTWARE\WOW6432Node\Bethesda Softworks\Skyrim', value = "installed path" }]
+requires = ["TESV.exe", "Data"]
+
+[game.mods]
+data_dir = "Data"
+data_markers = ["*.esp", "*.esm", "meshes", "textures", "scripts", "interface", "sound", "music", "strings", "seq", "video", "shaders", "materials", "*.bsa", "skse", "calientetools"]
+root_markers = ["skse_loader.exe", "skse_*.dll", "enbseries", "d3d9.dll"]
+fallback = "data"
+
+[game.load_order]
+format = "plugins-txt"
+plugins_file = "%LOCALAPPDATA%/Skyrim/Plugins.txt"
+loadorder_file = "%LOCALAPPDATA%/Skyrim/loadorder.txt"
+extensions = ["esm", "esp"]
+star_prefix = false
+implicit = ["Skyrim.esm", "Update.esm"]
+max_plugins = 255
+header = "tes4"
+timestamps = true
+
+[[tools]]
+id = "tes5edit"
+name = "TES5Edit"
+description = "Plugin editor and conflict detector (xEdit)."
+exe = ["TES5Edit.exe", "xEdit.exe"]
+homepage = "https://www.nexusmods.com/skyrim/mods/25859"
+args = ["-D:{game}/Data"]
+agent_notes = """xEdit edits plugins directly. Run it inside the view so it sees the modded load order; save patches (e.g. a merged patch) and they land in the generated mod, which Loom keeps above the mods it patches."""

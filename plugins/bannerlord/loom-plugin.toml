@@ -1,0 +1,28 @@
+# Official Loom plugin — Mount & Blade II: Bannerlord.
+[plugin]
+id = "github.com/enrell/loom/plugins/bannerlord"
+name = "Mount & Blade II: Bannerlord"
+version = "0.1.0"
+kind = "game"
+description = "Game support for Mount & Blade II: Bannerlord: detection and mod layout (Modules/<mod>). Enable modules in the game launcher."
+authors = ["Loom contributors"]
+license = "MIT"
+homepage = "https://github.com/enrell/loom/tree/main/plugins/bannerlord"
+
+[game]
+id = "bannerlord"
+name = "Mount & Blade II: Bannerlord"
+nexus_domain = "mountandblade2bannerlord"
+executables = [
+  { id = "bannerlord", name = "Bannerlord", path = "bin/Win64_Shipping_Client/Bannerlord.exe", default = true },
+  { id = "launcher", name = "Bannerlord Launcher", path = "bin/Win64_Shipping_Client/TaleWorlds.MountAndBlade.Launcher.exe", optional = true },
+]
+
+[game.detect]
+steam = [261550]
+requires = ["bin/Win64_Shipping_Client/Bannerlord.exe"]
+
+[game.mods]
+data_dir = "Modules"
+data_markers = ["SubModule.xml"]
+fallback = "package"

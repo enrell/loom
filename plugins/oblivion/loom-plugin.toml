@@ -1,0 +1,50 @@
+# Official Loom plugin — The Elder Scrolls IV: Oblivion.
+[plugin]
+id = "github.com/enrell/loom/plugins/oblivion"
+name = "The Elder Scrolls IV: Oblivion"
+version = "0.1.0"
+kind = "game"
+description = "Game support for The Elder Scrolls IV: Oblivion: detection, mod layout, load order, script extender and tools."
+authors = ["Loom contributors"]
+license = "MIT"
+homepage = "https://github.com/enrell/loom/tree/main/plugins/oblivion"
+
+[game]
+id = "oblivion"
+name = "The Elder Scrolls IV: Oblivion"
+nexus_domain = "oblivion"
+executables = [
+  { id = "oblivion", name = "Oblivion", path = "Oblivion.exe", default = true },
+  { id = "obse", name = "OBSE", path = "obse_loader.exe", optional = true },
+]
+
+[game.detect]
+steam = [22330]
+registry = [{ key = 'HKLM\SOFTWARE\WOW6432Node\Bethesda Softworks\Oblivion', value = "installed path" }]
+requires = ["Oblivion.exe", "Data"]
+
+[game.mods]
+data_dir = "Data"
+data_markers = ["*.esp", "*.esm", "meshes", "textures", "scripts", "interface", "sound", "music", "strings", "seq", "video", "shaders", "materials", "*.bsa", "obse", "menus", "distantlod", "trees", "fonts"]
+root_markers = ["obse_loader.exe", "obse_*.dll", "d3d9.dll"]
+fallback = "data"
+
+[game.load_order]
+format = "plugins-txt"
+plugins_file = "%LOCALAPPDATA%/Oblivion/Plugins.txt"
+loadorder_file = "%LOCALAPPDATA%/Oblivion/loadorder.txt"
+extensions = ["esm", "esp"]
+star_prefix = false
+implicit = ["Oblivion.esm"]
+max_plugins = 255
+header = "tes4"
+timestamps = true
+
+[[tools]]
+id = "tes4edit"
+name = "TES4Edit"
+description = "Plugin editor and conflict detector (xEdit)."
+exe = ["TES4Edit.exe", "xEdit.exe"]
+homepage = "https://www.nexusmods.com/oblivion/mods/11536"
+args = ["-D:{game}/Data"]
+agent_notes = """xEdit edits plugins directly. Run it inside the view so it sees the modded load order; save patches (e.g. a merged patch) and they land in the generated mod, which Loom keeps above the mods it patches."""

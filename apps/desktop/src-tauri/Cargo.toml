@@ -1,0 +1,24 @@
+[package]
+name = "loom-desktop"
+description = "Loom's desktop app (Tauri 2) over loom-core."
+version = "0.1.0"
+edition = "2024"
+license = "MIT"
+publish = false
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+loom-core = { path = "../../../crates/loom-core" }
+# `unstable` enables a second webview in the window (the embedded Nexus browser).
+tauri = { version = "2", features = ["unstable"] }
+tauri-plugin-single-instance = "2"
+tauri-plugin-dialog = "2"
+tauri-plugin-opener = "2"
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+
+[profile.release]
+codegen-units = 16
+strip = true

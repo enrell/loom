@@ -1,0 +1,12 @@
+id = "github.com/enrell/loom/plugins/cyberpunk2077"
+name = "Cyberpunk 2077"
+kind = "game"
+games = ["cyberpunk2077"]
+description = "Game support for Cyberpunk 2077: detection and mod layout. Loose .archive files go to archive/pc/mod; frameworks (CET, RED4ext, redscript) keep their folders."
+tags = ["official"]
+
+[[versions]]
+version = "0.1.0"
+ref = "plugins/cyberpunk2077/v0.1.0"
+sum = "sha256:cbaee3f0323c8755cabc92a364b192a826dc2db0c705ab029b67dc0aabc4a811"
+reviewed = "2026-10-15"

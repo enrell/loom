@@ -1,0 +1,12 @@
+id = "github.com/enrell/loom/plugins/falloutnv"
+name = "Fallout: New Vegas"
+kind = "game"
+games = ["falloutnv"]
+description = "Game support for Fallout: New Vegas: detection, mod layout, load order, script extender and tools."
+tags = ["official", "load-order", "tools"]
+
+[[versions]]
+version = "0.1.0"
+ref = "plugins/falloutnv/v0.1.0"
+sum = "sha256:6cada1265cf78d8c7de008a238ce8d35c816d1b423d04796cad6d923b94f91f4"
+reviewed = "2026-10-15"

@@ -1,0 +1,27 @@
+# Official Loom plugin — Darkest Dungeon.
+[plugin]
+id = "github.com/enrell/loom/plugins/darkestdungeon"
+name = "Darkest Dungeon"
+version = "0.1.0"
+kind = "game"
+description = "Game support for Darkest Dungeon: detection and mod layout (mods/<mod>). "
+authors = ["Loom contributors"]
+license = "MIT"
+homepage = "https://github.com/enrell/loom/tree/main/plugins/darkestdungeon"
+
+[game]
+id = "darkestdungeon"
+name = "Darkest Dungeon"
+nexus_domain = "darkestdungeon"
+executables = [
+  { id = "darkest", name = "Darkest Dungeon", path = "_windows/darkest.exe", default = true },
+]
+
+[game.detect]
+steam = [262060]
+requires = ["_windows/darkest.exe"]
+
+[game.mods]
+data_dir = "mods"
+data_markers = ["project.xml"]
+fallback = "package"

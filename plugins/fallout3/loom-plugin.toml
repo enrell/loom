@@ -1,0 +1,50 @@
+# Official Loom plugin — Fallout 3.
+[plugin]
+id = "github.com/enrell/loom/plugins/fallout3"
+name = "Fallout 3"
+version = "0.1.0"
+kind = "game"
+description = "Game support for Fallout 3: detection, mod layout, load order, script extender and tools."
+authors = ["Loom contributors"]
+license = "MIT"
+homepage = "https://github.com/enrell/loom/tree/main/plugins/fallout3"
+
+[game]
+id = "fallout3"
+name = "Fallout 3"
+nexus_domain = "fallout3"
+executables = [
+  { id = "fallout3", name = "Fallout 3", path = "Fallout3.exe", default = true },
+  { id = "fose", name = "FOSE", path = "fose_loader.exe", optional = true },
+]
+
+[game.detect]
+steam = [22300, 22370]
+registry = [{ key = 'HKLM\SOFTWARE\WOW6432Node\Bethesda Softworks\Fallout3', value = "installed path" }]
+requires = ["Fallout3.exe", "Data"]
+
+[game.mods]
+data_dir = "Data"
+data_markers = ["*.esp", "*.esm", "meshes", "textures", "scripts", "interface", "sound", "music", "strings", "seq", "video", "shaders", "materials", "*.bsa", "fose", "menus"]
+root_markers = ["fose_loader.exe", "fose_*.dll", "d3d9.dll"]
+fallback = "data"
+
+[game.load_order]
+format = "plugins-txt"
+plugins_file = "%LOCALAPPDATA%/Fallout3/plugins.txt"
+loadorder_file = "%LOCALAPPDATA%/Fallout3/loadorder.txt"
+extensions = ["esm", "esp"]
+star_prefix = false
+implicit = ["Fallout3.esm"]
+max_plugins = 255
+header = "tes4"
+timestamps = true
+
+[[tools]]
+id = "fo3edit"
+name = "FO3Edit"
+description = "Plugin editor and conflict detector (xEdit)."
+exe = ["FO3Edit.exe", "xEdit.exe"]
+homepage = "https://www.nexusmods.com/fallout3/mods/637"
+args = ["-D:{game}/Data"]
+agent_notes = """xEdit edits plugins directly. Run it inside the view so it sees the modded load order; save patches (e.g. a merged patch) and they land in the generated mod, which Loom keeps above the mods it patches."""

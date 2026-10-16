@@ -1,0 +1,12 @@
+id = "github.com/enrell/loom/plugins/skyrim"
+name = "The Elder Scrolls V: Skyrim"
+kind = "game"
+games = ["skyrim"]
+description = "Game support for The Elder Scrolls V: Skyrim: detection, mod layout, load order, script extender and tools."
+tags = ["official", "load-order", "tools"]
+
+[[versions]]
+version = "0.1.0"
+ref = "plugins/skyrim/v0.1.0"
+sum = "sha256:9d7bbb1fff59a653b5e964e2a1ff19513e61be5a794c5130b43ab94e2dd01e90"
+reviewed = "2026-10-15"

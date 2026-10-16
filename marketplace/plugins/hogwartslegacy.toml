@@ -1,0 +1,12 @@
+id = "github.com/enrell/loom/plugins/hogwartslegacy"
+name = "Hogwarts Legacy"
+kind = "game"
+games = ["hogwartslegacy"]
+description = "Game support for Hogwarts Legacy: detection and mod layout. Pak mods go to Phoenix/Content/Paks/~mods."
+tags = ["official"]
+
+[[versions]]
+version = "0.1.0"
+ref = "plugins/hogwartslegacy/v0.1.0"
+sum = "sha256:79df3bbd328291535ca46aae0aa93b3f07917293b2b1f1690b41f57413ee8857"
+reviewed = "2026-10-15"

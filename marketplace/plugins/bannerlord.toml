@@ -1,0 +1,12 @@
+id = "github.com/enrell/loom/plugins/bannerlord"
+name = "Mount & Blade II: Bannerlord"
+kind = "game"
+games = ["bannerlord"]
+description = "Game support for Mount & Blade II: Bannerlord: detection and mod layout (Modules/<mod>). Enable modules in the game launcher."
+tags = ["official"]
+
+[[versions]]
+version = "0.1.0"
+ref = "plugins/bannerlord/v0.1.0"
+sum = "sha256:24134aa2b199aea9ddbb13ebbbfd2d2ee1d0a7593b8ef993ba1ddd43a22177f1"
+reviewed = "2026-10-15"

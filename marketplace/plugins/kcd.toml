@@ -1,0 +1,12 @@
+id = "github.com/enrell/loom/plugins/kcd"
+name = "Kingdom Come: Deliverance"
+kind = "game"
+games = ["kcd"]
+description = "Game support for Kingdom Come: Deliverance: detection and mod layout (Mods/<mod>). "
+tags = ["official"]
+
+[[versions]]
+version = "0.1.0"
+ref = "plugins/kcd/v0.1.0"
+sum = "sha256:2952d5ab9db40fa41c84af65ebdc250d53ea2dd559914734060ceae7fd7b6b64"
+reviewed = "2026-10-15"

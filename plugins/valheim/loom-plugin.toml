@@ -1,0 +1,28 @@
+# Official Loom plugin — Valheim.
+[plugin]
+id = "github.com/enrell/loom/plugins/valheim"
+name = "Valheim"
+version = "0.1.0"
+kind = "game"
+description = "Game support for Valheim: detection and mod layout. BepInEx plugins go to BepInEx/plugins; install BepInEx itself as a mod first."
+authors = ["Loom contributors"]
+license = "MIT"
+homepage = "https://github.com/enrell/loom/tree/main/plugins/valheim"
+
+[game]
+id = "valheim"
+name = "Valheim"
+nexus_domain = "valheim"
+executables = [
+  { id = "valheim", name = "Valheim", path = "valheim.exe", default = true },
+]
+
+[game.detect]
+steam = [892970]
+requires = ["valheim.exe"]
+
+[game.mods]
+data_dir = "BepInEx/plugins"
+data_markers = ["*.dll"]
+root_markers = ["BepInEx", "doorstop_config.ini", "winhttp.dll"]
+fallback = "data"
