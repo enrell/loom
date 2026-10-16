@@ -1,0 +1,7 @@
+{
+  "identifier": "default",
+  "description": "IPC for the bundled UI webview only; the Nexus webview gets none.",
+  "windows": ["main"],
+  "webviews": ["ui"],
+  "permissions": ["core:default"]
+}

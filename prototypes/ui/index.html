@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Loom</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="brand">
+      <div class="brand-mark">L</div>
+      <div>
+        <div class="brand-name">Loom</div>
+        <div class="brand-sub" id="shell-sub">prototype</div>
+      </div>
+    </div>
+    <nav class="nav" id="nav">
+      <div class="nav-label">Library</div>
+      <button data-page="mods" class="active"><i class="ico">&#xE8F1;</i>Mods<span class="count" id="nav-mods">0</span></button>
+      <button data-page="downloads"><i class="ico">&#xE896;</i>Downloads<span class="count" id="nav-dl">0</span></button>
+      <div class="nav-label">Discover</div>
+      <button data-page="nexus"><i class="ico">&#xE774;</i>Nexus Mods</button>
+      <button data-page="media"><i class="ico">&#xE714;</i>Media</button>
+      <div class="nav-label">Diagnostics</div>
+      <button data-page="perf"><i class="ico">&#xE9D9;</i>Performance</button>
+    </nav>
+    <div class="sidebar-foot">
+      <div class="k">Active profile</div>
+      <div class="v">Skyrim Special Edition</div>
+      <div class="k" style="margin-top:2px">default</div>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <h1 id="title">Mods</h1>
+      <span class="sub" id="subtitle"></span>
+      <div class="spacer"></div>
+      <input class="input" id="search" placeholder="Search mods" spellcheck="false">
+      <button class="btn primary" id="launch"><i class="fi">&#xE768;</i>Launch game</button>
+    </header>
+
+    <section class="page active" data-page="mods">
+      <div class="mods">
+        <div class="list">
+          <div class="chips" id="chips">
+            <button class="chip active" data-filter="all">All</button>
+            <button class="chip" data-filter="enabled">Enabled</button>
+            <button class="chip" data-filter="disabled">Disabled</button>
+            <button class="chip" data-filter="conflicts">Conflicts</button>
+          </div>
+          <div class="thead"><span></span><span>#</span><span>Name</span><span>Version</span><span>Category</span><span>Size</span><span>Status</span></div>
+          <div class="viewport" id="viewport"><div id="spacer"></div></div>
+        </div>
+        <div class="details" id="details"></div>
+      </div>
+    </section>
+
+    <section class="page" data-page="downloads">
+      <div class="content">
+        <div class="row-actions">
+          <input class="input" id="nxm-input" placeholder="Paste an nxm:// link" spellcheck="false" style="flex:1">
+          <button class="btn" id="nxm-add">Add</button>
+          <button class="btn" id="nxm-sim">Simulate link</button>
+          <button class="btn" id="nxm-reg">Register as nxm handler</button>
+        </div>
+        <div class="card">
+          <h3>Received links</h3>
+          <table class="table">
+            <thead><tr><th>Game</th><th>Mod</th><th>File</th><th>Expires</th><th>Source</th></tr></thead>
+            <tbody id="nxm-rows"></tbody>
+          </table>
+          <div class="empty" id="nxm-empty">No nxm:// links yet. Click “Mod Manager Download” on Nexus Mods, or simulate one.</div>
+        </div>
+        <div class="card"><h3>Handler</h3><div id="nxm-status" class="dim">Not registered by this prototype.</div></div>
+      </div>
+    </section>
+
+    <section class="page" data-page="nexus">
+      <div class="browser">
+        <div class="urlbar">
+          <button class="iconbtn fi" id="b-back">&#xE72B;</button>
+          <button class="iconbtn fi" id="b-fwd">&#xE72A;</button>
+          <button class="iconbtn fi" id="b-reload">&#xE72C;</button>
+          <input class="input" id="b-url" spellcheck="false" value="https://www.nexusmods.com/games/skyrimspecialedition">
+          <button class="btn" id="b-ext"><i class="fi">&#xE8A7;</i>Open in browser</button>
+        </div>
+        <div class="webhost" id="webhost">
+          <div class="placeholder" id="web-placeholder"><div><b>Embedded browser</b>Loading…</div></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" data-page="media">
+      <div class="content">
+        <div class="grid2">
+          <div class="card">
+            <h3>Local video · H.264 / AAC</h3>
+            <div id="video-slot"></div>
+          </div>
+          <div class="card">
+            <h3>Codec support</h3>
+            <table class="table"><thead><tr><th>Codec</th><th>Support</th></tr></thead><tbody id="codecs"></tbody></table>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Streaming</h3>
+          <div class="row-actions" style="margin:0">
+            <button class="btn" id="yt">Open a mod showcase on YouTube in the Nexus tab</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="page" data-page="perf">
+      <div class="content">
+        <div class="grid4">
+          <div class="card stat"><div class="k">Startup</div><div class="v" id="p-start">–<span class="u">ms</span></div></div>
+          <div class="card stat"><div class="k">Memory (process tree)</div><div class="v" id="p-mem">–<span class="u">MB</span></div></div>
+          <div class="card stat"><div class="k">CPU</div><div class="v" id="p-cpu">–<span class="u">%</span></div></div>
+          <div class="card stat"><div class="k">Processes</div><div class="v" id="p-procs">–</div></div>
+        </div>
+        <div class="grid2">
+          <div class="card"><h3>Memory · last 60 s</h3><canvas class="spark" id="spark-mem"></canvas></div>
+          <div class="card"><h3>CPU · last 60 s</h3><canvas class="spark" id="spark-cpu"></canvas></div>
+        </div>
+        <div class="grid2">
+          <div class="card">
+            <h3>Scenarios</h3>
+            <div class="row-actions" style="margin:0">
+              <button class="btn" id="sc-scroll">Scroll stress · 10 s</button>
+              <button class="btn" id="sc-video">Play video</button>
+            </div>
+          </div>
+          <div class="card"><h3>Shell</h3><div class="kv" id="shell-kv"></div></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="status">
+    <span><span class="dot"></span><b id="st-shell">–</b></span>
+    <span>Skyrim Special Edition · default</span>
+    <span id="st-enabled"></span>
+    <span class="spacer"></span>
+    <span>MEM <b id="st-mem">–</b></span>
+    <span>CPU <b id="st-cpu">–</b></span>
+  </footer>
+</div>
+<script src="app.js"></script>
+</body>
+</html>

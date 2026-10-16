@@ -1,0 +1,3 @@
+ui/media/*.mp4
+__pycache__/
+bench/run_all.log

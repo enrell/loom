@@ -1,0 +1,16 @@
+{
+  "name": "loom-electron",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Loom UI shell prototype — Electron",
+  "main": "main.js",
+  "scripts": {
+    "sync-ui": "node -e \"require('fs').cpSync('../ui','ui',{recursive:true})\"",
+    "start": "npm run sync-ui && electron .",
+    "package": "npm run sync-ui && electron-packager . loom-electron --platform=win32 --arch=x64 --out=out --overwrite --asar --icon=../assets/icon.ico --ignore=^/out"
+  },
+  "devDependencies": {
+    "@electron/packager": "20.3.0",
+    "electron": "44.7.2"
+  }
+}

@@ -1,0 +1,247 @@
+{
+  "machine": {
+    "os": "Windows-11-10.0.26300-SP0",
+    "cpu": "12th Gen Intel(R) Core(TM) i7-12700H",
+    "logical_cpus": 20,
+    "ram_gb": 40
+  },
+  "electron": {
+    "build": {
+      "clean_release": {
+        "wall_s": 6.23,
+        "cpu_s": 3.8,
+        "peak_commit_mb": 887,
+        "peak_working_set_mb": 913,
+        "processes": 13
+      },
+      "incremental_release": {
+        "wall_s": 6.63,
+        "cpu_s": 4.0,
+        "peak_commit_mb": 886,
+        "peak_working_set_mb": 913,
+        "processes": 13
+      },
+      "artifact_mb": 367.9
+    },
+    "runtime": {
+      "startup": {
+        "external_ms_median": 269,
+        "external_ms_min": 261,
+        "in_app_ms_median": 262,
+        "runs": 5
+      },
+      "idle": {
+        "cpu_percent_mean": 0.78,
+        "working_set_mb_mean": 337,
+        "working_set_mb_peak": 337,
+        "private_mb_mean": 171,
+        "processes": 4
+      },
+      "scroll": {
+        "cpu_percent_mean": 33.29,
+        "working_set_mb_mean": 432,
+        "working_set_mb_peak": 435,
+        "private_mb_mean": 249,
+        "processes": 4
+      },
+      "video": {
+        "cpu_percent_mean": 9.47,
+        "working_set_mb_mean": 481,
+        "working_set_mb_peak": 499,
+        "private_mb_mean": 309,
+        "processes": 4
+      },
+      "nexus": {
+        "cpu_percent_mean": 1.46,
+        "working_set_mb_mean": 1613,
+        "working_set_mb_peak": 1628,
+        "private_mb_mean": 909,
+        "processes": 11
+      }
+    }
+  },
+  "tauri": {
+    "build": {
+      "clean_release": {
+        "wall_s": 127.12,
+        "cpu_s": 830.8,
+        "peak_commit_mb": 4191,
+        "peak_working_set_mb": 3547,
+        "processes": 557
+      },
+      "incremental_release": {
+        "wall_s": 28.91,
+        "cpu_s": 164.9,
+        "peak_commit_mb": 1690,
+        "peak_working_set_mb": 1372,
+        "processes": 35
+      },
+      "clean_debug": {
+        "wall_s": 90.03,
+        "cpu_s": 377.4,
+        "peak_commit_mb": 4036,
+        "peak_working_set_mb": 3238,
+        "processes": 462
+      },
+      "incremental_debug": {
+        "wall_s": 6.83,
+        "cpu_s": 15.7,
+        "peak_commit_mb": 1449,
+        "peak_working_set_mb": 1034,
+        "processes": 9
+      },
+      "artifact_mb": 10.0
+    },
+    "runtime": {
+      "startup": {
+        "external_ms_median": 514,
+        "external_ms_min": 503,
+        "in_app_ms_median": 511,
+        "runs": 5
+      },
+      "idle": {
+        "cpu_percent_mean": 0.86,
+        "working_set_mb_mean": 489,
+        "working_set_mb_peak": 505,
+        "private_mb_mean": 238,
+        "processes": 8
+      },
+      "scroll": {
+        "cpu_percent_mean": 30.69,
+        "working_set_mb_mean": 589,
+        "working_set_mb_peak": 599,
+        "private_mb_mean": 320,
+        "processes": 8
+      },
+      "video": {
+        "cpu_percent_mean": 8.01,
+        "working_set_mb_mean": 533,
+        "working_set_mb_peak": 538,
+        "private_mb_mean": 285,
+        "processes": 8
+      },
+      "nexus": {
+        "cpu_percent_mean": 2.81,
+        "working_set_mb_mean": 1410,
+        "working_set_mb_peak": 1428,
+        "private_mb_mean": 943,
+        "processes": 15
+      }
+    }
+  },
+  "egui": {
+    "build": {
+      "clean_release": {
+        "wall_s": 103.8,
+        "cpu_s": 1048.0,
+        "peak_commit_mb": 4283,
+        "peak_working_set_mb": 3659,
+        "processes": 293
+      },
+      "incremental_release": {
+        "wall_s": 3.82,
+        "cpu_s": 9.4,
+        "peak_commit_mb": 810,
+        "peak_working_set_mb": 329,
+        "processes": 9
+      },
+      "clean_debug": {
+        "wall_s": 73.33,
+        "cpu_s": 378.6,
+        "peak_commit_mb": 4960,
+        "peak_working_set_mb": 3640,
+        "processes": 292
+      },
+      "incremental_debug": {
+        "wall_s": 4.22,
+        "cpu_s": 7.5,
+        "peak_commit_mb": 1577,
+        "peak_working_set_mb": 1757,
+        "processes": 9
+      },
+      "artifact_mb": 14.1
+    },
+    "runtime": {
+      "startup": {
+        "external_ms_median": 300,
+        "external_ms_min": 289,
+        "in_app_ms_median": 299,
+        "runs": 5
+      },
+      "idle": {
+        "cpu_percent_mean": 0.86,
+        "working_set_mb_mean": 342,
+        "working_set_mb_peak": 344,
+        "private_mb_mean": 290,
+        "processes": 1
+      },
+      "scroll": {
+        "cpu_percent_mean": 10.09,
+        "working_set_mb_mean": 341,
+        "working_set_mb_peak": 342,
+        "private_mb_mean": 288,
+        "processes": 1
+      },
+      "video": null,
+      "nexus": null
+    }
+  },
+  "egui-glow": {
+    "build": {
+      "clean_release": {
+        "wall_s": 73.95,
+        "cpu_s": 708.1,
+        "peak_commit_mb": 3146,
+        "peak_working_set_mb": 2480,
+        "processes": 251
+      },
+      "incremental_release": {
+        "wall_s": 2.61,
+        "cpu_s": 7.7,
+        "peak_commit_mb": 618,
+        "peak_working_set_mb": 292,
+        "processes": 9
+      },
+      "clean_debug": {
+        "wall_s": 60.47,
+        "cpu_s": 261.2,
+        "peak_commit_mb": 3929,
+        "peak_working_set_mb": 2751,
+        "processes": 251
+      },
+      "incremental_debug": {
+        "wall_s": 3.42,
+        "cpu_s": 4.7,
+        "peak_commit_mb": 1094,
+        "peak_working_set_mb": 1055,
+        "processes": 9
+      },
+      "artifact_mb": 7.7
+    },
+    "runtime": {
+      "startup": {
+        "external_ms_median": 129,
+        "external_ms_min": 128,
+        "in_app_ms_median": 126,
+        "runs": 5
+      },
+      "idle": {
+        "cpu_percent_mean": 0.86,
+        "working_set_mb_mean": 103,
+        "working_set_mb_peak": 104,
+        "private_mb_mean": 54,
+        "processes": 1
+      },
+      "scroll": {
+        "cpu_percent_mean": 15.5,
+        "working_set_mb_mean": 105,
+        "working_set_mb_peak": 106,
+        "private_mb_mean": 56,
+        "processes": 1
+      },
+      "video": null,
+      "nexus": null
+    }
+  },
+  "generated": "2026-10-16 00:16"
+}

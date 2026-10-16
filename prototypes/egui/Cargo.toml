@@ -1,0 +1,23 @@
+[package]
+name = "loom-egui"
+version = "0.1.0"
+edition = "2024"
+publish = false
+description = "Loom UI shell prototype — egui (eframe)"
+
+[features]
+# Renderer: wgpu (eframe's default, DirectX 12 here) or glow (OpenGL).
+default = ["wgpu"]
+wgpu = ["eframe/wgpu"]
+glow = ["eframe/glow"]
+
+[dependencies]
+eframe = { version = "=0.37.0", default-features = false, features = [
+    "accesskit", "clipboard", "default_fonts", "links", "system_fonts", "wayland", "x11",
+] }
+loom-proto-host = { path = "../host-rs" }
+
+[profile.release]
+codegen-units = 16
+lto = false
+strip = true
