@@ -71,7 +71,8 @@ def main():
             for p in plugins
         ],
         "market_search": market,
-        "settings": {"nexus_api_key_set": False, "launch_mode": None, "marketplace": "github.com/enrell/loom/marketplace", "mount_available": True, "home": home},
+        "agents_list": loom("agents", "list"),
+        "settings": {"nexus_api_key_set": False, "launch_mode": None, "marketplace": "github.com/enrell/loom/marketplace", "mount_available": True, "home": home, "agents_wizard_seen": True},
     }
     OUT.parent.mkdir(parents=True, exist_ok=True)
     OUT.write_text(json.dumps(anonymize(fixtures, home), indent=1), encoding="utf-8")

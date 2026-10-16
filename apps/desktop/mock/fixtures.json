@@ -13,121 +13,121 @@
  },
  "available_games": [
   {
-   "found": [],
    "id": "bannerlord",
    "name": "Mount & Blade II: Bannerlord",
    "plugin": "github.com/enrell/loom/plugins/bannerlord",
-   "set_up": false
+   "set_up": false,
+   "found": []
   },
   {
-   "found": [],
    "id": "cyberpunk2077",
    "name": "Cyberpunk 2077",
    "plugin": "github.com/enrell/loom/plugins/cyberpunk2077",
-   "set_up": false
+   "set_up": false,
+   "found": []
   },
   {
-   "found": [],
    "id": "darkestdungeon",
    "name": "Darkest Dungeon",
    "plugin": "github.com/enrell/loom/plugins/darkestdungeon",
-   "set_up": false
+   "set_up": false,
+   "found": []
   },
   {
-   "found": [],
    "id": "fallout3",
    "name": "Fallout 3",
    "plugin": "github.com/enrell/loom/plugins/fallout3",
-   "set_up": false
+   "set_up": false,
+   "found": []
   },
   {
-   "found": [],
    "id": "fallout4",
    "name": "Fallout 4",
    "plugin": "github.com/enrell/loom/plugins/fallout4",
-   "set_up": false
+   "set_up": false,
+   "found": []
   },
   {
-   "found": [],
    "id": "falloutnv",
    "name": "Fallout: New Vegas",
    "plugin": "github.com/enrell/loom/plugins/falloutnv",
-   "set_up": false
+   "set_up": false,
+   "found": []
   },
   {
-   "found": [],
    "id": "hogwartslegacy",
    "name": "Hogwarts Legacy",
    "plugin": "github.com/enrell/loom/plugins/hogwartslegacy",
-   "set_up": false
+   "set_up": false,
+   "found": []
   },
   {
-   "found": [],
    "id": "kcd",
    "name": "Kingdom Come: Deliverance",
    "plugin": "github.com/enrell/loom/plugins/kcd",
-   "set_up": false
+   "set_up": false,
+   "found": []
   },
   {
-   "found": [],
    "id": "oblivion",
    "name": "The Elder Scrolls IV: Oblivion",
    "plugin": "github.com/enrell/loom/plugins/oblivion",
-   "set_up": false
+   "set_up": false,
+   "found": []
   },
   {
-   "found": [],
    "id": "rimworld",
    "name": "RimWorld",
    "plugin": "github.com/enrell/loom/plugins/rimworld",
-   "set_up": false
+   "set_up": false,
+   "found": []
   },
   {
-   "found": [],
    "id": "skyrim",
    "name": "The Elder Scrolls V: Skyrim",
    "plugin": "github.com/enrell/loom/plugins/skyrim",
-   "set_up": false
+   "set_up": false,
+   "found": []
   },
   {
+   "id": "skyrimse",
+   "name": "The Elder Scrolls V: Skyrim Special Edition",
+   "plugin": "github.com/enrell/loom/plugins/skyrimse",
+   "set_up": true,
    "found": [
     {
      "path": "C:\\GOG Games\\Skyrim Anniversary Edition",
      "source": "gog"
     }
-   ],
-   "id": "skyrimse",
-   "name": "The Elder Scrolls V: Skyrim Special Edition",
-   "plugin": "github.com/enrell/loom/plugins/skyrimse",
-   "set_up": true
+   ]
   },
   {
-   "found": [],
    "id": "stardewvalley",
    "name": "Stardew Valley",
    "plugin": "github.com/enrell/loom/plugins/stardewvalley",
-   "set_up": false
+   "set_up": false,
+   "found": []
   },
   {
-   "found": [],
    "id": "starfield",
    "name": "Starfield",
    "plugin": "github.com/enrell/loom/plugins/starfield",
-   "set_up": false
+   "set_up": false,
+   "found": []
   },
   {
-   "found": [],
    "id": "valheim",
    "name": "Valheim",
    "plugin": "github.com/enrell/loom/plugins/valheim",
-   "set_up": false
+   "set_up": false,
+   "found": []
   },
   {
-   "found": [],
    "id": "witcher3",
    "name": "The Witcher 3: Wild Hunt",
    "plugin": "github.com/enrell/loom/plugins/witcher3",
-   "set_up": false
+   "set_up": false,
+   "found": []
   }
  ],
  "game_overview": {
@@ -140,25 +140,25 @@
   ],
   "executables": [
    {
-    "default": true,
     "id": "skyrim",
     "name": "Skyrim Special Edition",
-    "optional": false,
-    "path": "SkyrimSE.exe"
+    "path": "SkyrimSE.exe",
+    "default": true,
+    "optional": false
    },
    {
-    "default": false,
     "id": "skse",
     "name": "SKSE",
-    "optional": true,
-    "path": "skse64_loader.exe"
+    "path": "skse64_loader.exe",
+    "default": false,
+    "optional": true
    },
    {
-    "default": false,
     "id": "launcher",
     "name": "Skyrim Launcher",
-    "optional": true,
-    "path": "SkyrimSELauncher.exe"
+    "path": "SkyrimSELauncher.exe",
+    "default": false,
+    "optional": true
    }
   ],
   "nexus_domain": "skyrimspecialedition",
@@ -166,159 +166,144 @@
   "launch_mode": "mount",
   "plugin": {
    "id": "github.com/enrell/loom/plugins/skyrimse",
+   "version": "0.1.0",
    "source": "path:C:\\Users\\you\\projects\\loom\\plugins\\skyrimse",
-   "sum": "sha256:92131091663f6a6a39e2084d67d5a1968549ae4e4b86f9f36a0e523803a052e7",
-   "version": "0.1.0"
+   "sum": "sha256:92131091663f6a6a39e2084d67d5a1968549ae4e4b86f9f36a0e523803a052e7"
   }
  },
  "mods": [
   {
-   "bytes": 209,
-   "enabled": true,
-   "files": 1,
-   "meta": {
-    "installed": 1792114311,
-    "source": "C:\\Users\\you\\AppData\\Local\\Temp\\loom-demo-mods\\Unofficial Patch.zip"
-   },
-   "missing": false,
    "name": "Unofficial Patch",
-   "priority": 0
-  },
-  {
-   "bytes": 77,
-   "enabled": true,
-   "files": 2,
-   "meta": {
-    "installed": 1792114311,
-    "source": "C:\\Users\\you\\AppData\\Local\\Temp\\loom-demo-mods\\Static Mesh Improvement Mod.zip"
-   },
-   "missing": false,
-   "name": "Static Mesh Improvement Mod",
-   "priority": 1
-  },
-  {
-   "bytes": 74,
-   "enabled": true,
-   "files": 2,
-   "meta": {
-    "installed": 1792114311,
-    "source": "C:\\Users\\you\\AppData\\Local\\Temp\\loom-demo-mods\\SkyUI_5_2_SE.zip"
-   },
-   "missing": false,
-   "name": "SkyUI_5_2_SE",
-   "priority": 2
-  },
-  {
-   "bytes": 128,
+   "priority": 0,
    "enabled": true,
    "files": 1,
+   "bytes": 209,
    "meta": {
-    "installed": 1792114311,
-    "source": "C:\\Users\\you\\AppData\\Local\\Temp\\loom-demo-mods\\Immersive Armors Patch.zip"
+    "source": "C:\\Users\\you\\AppData\\Local\\Temp\\loom-demo-mods\\Unofficial Patch.zip",
+    "installed": 1792114311
    },
-   "missing": false,
-   "name": "Immersive Armors Patch",
-   "priority": 3
+   "missing": false
   },
   {
-   "bytes": 3,
+   "name": "Static Mesh Improvement Mod",
+   "priority": 1,
+   "enabled": true,
+   "files": 2,
+   "bytes": 77,
+   "meta": {
+    "source": "C:\\Users\\you\\AppData\\Local\\Temp\\loom-demo-mods\\Static Mesh Improvement Mod.zip",
+    "installed": 1792114311
+   },
+   "missing": false
+  },
+  {
+   "name": "SkyUI_5_2_SE",
+   "priority": 2,
+   "enabled": true,
+   "files": 2,
+   "bytes": 74,
+   "meta": {
+    "source": "C:\\Users\\you\\AppData\\Local\\Temp\\loom-demo-mods\\SkyUI_5_2_SE.zip",
+    "installed": 1792114311
+   },
+   "missing": false
+  },
+  {
+   "name": "Immersive Armors Patch",
+   "priority": 3,
+   "enabled": true,
+   "files": 1,
+   "bytes": 128,
+   "meta": {
+    "source": "C:\\Users\\you\\AppData\\Local\\Temp\\loom-demo-mods\\Immersive Armors Patch.zip",
+    "installed": 1792114311
+   },
+   "missing": false
+  },
+  {
+   "name": "Better Dialogue Controls",
+   "priority": 4,
    "enabled": true,
    "files": 3,
+   "bytes": 3,
    "meta": {
-    "installed": 1792114311,
-    "source": "C:\\Users\\you\\AppData\\Local\\Temp\\loom-demo-mods\\Better Dialogue Controls.zip"
+    "source": "C:\\Users\\you\\AppData\\Local\\Temp\\loom-demo-mods\\Better Dialogue Controls.zip",
+    "installed": 1792114311
    },
-   "missing": false,
-   "name": "Better Dialogue Controls",
-   "priority": 4
+   "missing": false
   }
  ],
  "conflicts": [
   {
+   "path": "Data/meshes/x.nif",
+   "winner": "Static Mesh Improvement Mod",
    "losers": [
     "Better Dialogue Controls"
-   ],
-   "path": "Data/meshes/x.nif",
-   "winner": "Static Mesh Improvement Mod"
+   ]
   }
  ],
  "load_order": [
   {
+   "name": "Skyrim.esm",
    "active": true,
    "implicit": true,
-   "is_light": false,
-   "is_master": true,
+   "provider": "base",
    "masters": [],
-   "name": "Skyrim.esm",
-   "provider": "base"
+   "is_master": true,
+   "is_light": false
   },
   {
+   "name": "Update.esm",
    "active": true,
    "implicit": true,
-   "is_light": false,
-   "is_master": true,
+   "provider": "base",
    "masters": [
     "Skyrim.esm"
    ],
-   "name": "Update.esm",
-   "provider": "base"
+   "is_master": true,
+   "is_light": false
   },
   {
-   "active": true,
-   "implicit": true,
-   "is_light": false,
-   "is_master": true,
-   "masters": [
-    "Skyrim.esm",
-    "Update.esm"
-   ],
    "name": "Dawnguard.esm",
-   "provider": "base"
-  },
-  {
    "active": true,
    "implicit": true,
-   "is_light": false,
-   "is_master": true,
+   "provider": "base",
    "masters": [
     "Skyrim.esm",
     "Update.esm"
    ],
+   "is_master": true,
+   "is_light": false
+  },
+  {
    "name": "HearthFires.esm",
-   "provider": "base"
-  },
-  {
    "active": true,
    "implicit": true,
-   "is_light": false,
-   "is_master": true,
+   "provider": "base",
    "masters": [
     "Skyrim.esm",
     "Update.esm"
    ],
+   "is_master": true,
+   "is_light": false
+  },
+  {
    "name": "Dragonborn.esm",
-   "provider": "base"
-  },
-  {
    "active": true,
    "implicit": true,
-   "is_light": false,
-   "is_master": true,
+   "provider": "base",
    "masters": [
     "Skyrim.esm",
-    "Update.esm",
-    "Dawnguard.esm",
-    "HearthFires.esm",
-    "Dragonborn.esm"
+    "Update.esm"
    ],
+   "is_master": true,
+   "is_light": false
+  },
+  {
    "name": "ccBGSSSE001-Fish.esm",
-   "provider": "base"
-  },
-  {
    "active": true,
    "implicit": true,
-   "is_light": true,
-   "is_master": true,
+   "provider": "base",
    "masters": [
     "Skyrim.esm",
     "Update.esm",
@@ -326,14 +311,14 @@
     "HearthFires.esm",
     "Dragonborn.esm"
    ],
+   "is_master": true,
+   "is_light": false
+  },
+  {
    "name": "ccQDRSSE001-SurvivalMode.esl",
-   "provider": "base"
-  },
-  {
    "active": true,
    "implicit": true,
-   "is_light": true,
-   "is_master": true,
+   "provider": "base",
    "masters": [
     "Skyrim.esm",
     "Update.esm",
@@ -341,14 +326,14 @@
     "HearthFires.esm",
     "Dragonborn.esm"
    ],
+   "is_master": true,
+   "is_light": true
+  },
+  {
    "name": "ccBGSSSE037-Curios.esl",
-   "provider": "base"
-  },
-  {
    "active": true,
    "implicit": true,
-   "is_light": false,
-   "is_master": true,
+   "provider": "base",
    "masters": [
     "Skyrim.esm",
     "Update.esm",
@@ -356,27 +341,42 @@
     "HearthFires.esm",
     "Dragonborn.esm"
    ],
-   "name": "ccBGSSSE025-AdvDSGS.esm",
-   "provider": "base"
+   "is_master": true,
+   "is_light": true
   },
   {
+   "name": "ccBGSSSE025-AdvDSGS.esm",
    "active": true,
    "implicit": true,
-   "is_light": true,
+   "provider": "base",
+   "masters": [
+    "Skyrim.esm",
+    "Update.esm",
+    "Dawnguard.esm",
+    "HearthFires.esm",
+    "Dragonborn.esm"
+   ],
    "is_master": true,
+   "is_light": false
+  },
+  {
+   "name": "_ResourcePack.esl",
+   "active": true,
+   "implicit": true,
+   "provider": "base",
    "masters": [
     "Skyrim.esm",
     "Update.esm",
     "HearthFires.esm"
    ],
-   "name": "_ResourcePack.esl",
-   "provider": "base"
+   "is_master": true,
+   "is_light": true
   },
   {
+   "name": "unofficial skyrim special edition patch.esp",
    "active": true,
    "implicit": false,
-   "is_light": false,
-   "is_master": true,
+   "provider": "Unofficial Patch",
    "masters": [
     "Skyrim.esm",
     "Update.esm",
@@ -384,109 +384,109 @@
     "HearthFires.esm",
     "Dragonborn.esm"
    ],
-   "name": "unofficial skyrim special edition patch.esp",
-   "provider": "Unofficial Patch"
+   "is_master": true,
+   "is_light": false
   },
   {
-   "active": true,
-   "implicit": false,
-   "is_light": false,
-   "is_master": false,
-   "masters": [
-    "Skyrim.esm"
-   ],
    "name": "SMIM-SE-Merged-All.esp",
-   "provider": "Static Mesh Improvement Mod"
-  },
-  {
    "active": true,
    "implicit": false,
-   "is_light": false,
-   "is_master": false,
+   "provider": "Static Mesh Improvement Mod",
    "masters": [
     "Skyrim.esm"
    ],
-   "name": "SkyUI_SE.esp",
-   "provider": "SkyUI_5_2_SE"
+   "is_master": false,
+   "is_light": false
   },
   {
+   "name": "SkyUI_SE.esp",
    "active": true,
    "implicit": false,
-   "is_light": false,
+   "provider": "SkyUI_5_2_SE",
+   "masters": [
+    "Skyrim.esm"
+   ],
    "is_master": false,
+   "is_light": false
+  },
+  {
+   "name": "ImmersiveArmors_USSEP_Patch.esp",
+   "active": true,
+   "implicit": false,
+   "provider": "Immersive Armors Patch",
    "masters": [
     "Skyrim.esm",
     "Hothtrooper44_ArmorCompilation.esp"
    ],
-   "name": "ImmersiveArmors_USSEP_Patch.esp",
-   "provider": "Immersive Armors Patch"
+   "is_master": false,
+   "is_light": false
   }
  ],
  "doctor": [
   {
-   "code": "missing-master",
-   "fix": "loom order disable skyrimse \"ImmersiveArmors_USSEP_Patch.esp\"",
-   "message": "ImmersiveArmors_USSEP_Patch.esp needs Hothtrooper44_ArmorCompilation.esp, which no enabled mod or the game provides",
    "severity": "error",
-   "subject": "ImmersiveArmors_USSEP_Patch.esp"
+   "code": "missing-master",
+   "message": "ImmersiveArmors_USSEP_Patch.esp needs Hothtrooper44_ArmorCompilation.esp, which no enabled mod or the game provides",
+   "subject": "ImmersiveArmors_USSEP_Patch.esp",
+   "fix": "loom order disable skyrimse \"ImmersiveArmors_USSEP_Patch.esp\""
   },
   {
-   "code": "file-conflicts",
-   "fix": "loom mod conflicts skyrimse",
-   "message": "1 file(s) are provided by more than one enabled mod; the higher mod wins",
    "severity": "info",
-   "subject": "mods"
+   "code": "file-conflicts",
+   "message": "1 file(s) are provided by more than one enabled mod; the higher mod wins",
+   "subject": "mods",
+   "fix": "loom mod conflicts skyrimse"
   }
  ],
  "tools": [
   {
-   "agent_notes": "Translations it saves go to the generated mod. For a full translation pass prefer SSE Auto Translator, which matches every installed mod with its published translation.",
-   "description": "Translates plugin strings (ESP/ESM/ESL, MCM, PEX).",
-   "found": null,
-   "homepage": "https://www.nexusmods.com/skyrimspecialedition/mods/134",
    "id": "xtranslator",
    "name": "xTranslator",
+   "description": "Translates plugin strings (ESP/ESM/ESL, MCM, PEX).",
+   "homepage": "https://www.nexusmods.com/skyrimspecialedition/mods/134",
+   "found": null,
    "output": "generated-mod",
+   "agent_notes": "Translations it saves go to the generated mod. For a full translation pass prefer SSE Auto Translator, which matches every installed mod with its published translation.",
    "plugin": "github.com/enrell/loom/plugins/skyrimse"
   },
   {
-   "agent_notes": "Run it inside the view: it scans the merged Data folder, finds each mod's translation on Nexus Mods and writes translated plugins/strings; everything it writes becomes the 'Generated - SSE Auto Translator' mod. Keep that mod above the mods it translates (index 0 is safest) and run loom_doctor afterwards.",
-   "description": "Finds and applies published translations for every installed mod.",
-   "found": null,
-   "homepage": "https://www.nexusmods.com/skyrimspecialedition/mods/111491",
    "id": "sse-at",
    "name": "SSE Auto Translator",
+   "description": "Finds and applies published translations for every installed mod.",
+   "homepage": "https://www.nexusmods.com/skyrimspecialedition/mods/111491",
+   "found": null,
    "output": "generated-mod",
+   "agent_notes": "Run it inside the view: it scans the merged Data folder, finds each mod's translation on Nexus Mods and writes translated plugins/strings; everything it writes becomes the 'Generated - SSE Auto Translator' mod. Keep that mod above the mods it translates (index 0 is safest) and run loom_doctor afterwards.",
    "plugin": "github.com/enrell/loom/plugins/skyrimse"
   },
   {
-   "agent_notes": "xEdit edits plugins directly. Run it inside the view so it sees the modded load order; save patches (e.g. a merged patch) and they land in the generated mod, which Loom keeps above the mods it patches.",
-   "description": "Plugin editor and conflict detector (xEdit).",
-   "found": null,
-   "homepage": "https://www.nexusmods.com/skyrimspecialedition/mods/164",
    "id": "sseedit",
    "name": "SSEEdit",
+   "description": "Plugin editor and conflict detector (xEdit).",
+   "homepage": "https://www.nexusmods.com/skyrimspecialedition/mods/164",
+   "found": null,
    "output": "generated-mod",
+   "agent_notes": "xEdit edits plugins directly. Run it inside the view so it sees the modded load order; save patches (e.g. a merged patch) and they land in the generated mod, which Loom keeps above the mods it patches.",
    "plugin": "github.com/enrell/loom/plugins/skyrimse"
   },
   {
-   "agent_notes": "Built meshes go to the generated mod; rebuild after changing body or outfit mods.",
-   "description": "Builds body and outfit meshes.",
-   "found": null,
-   "homepage": "https://www.nexusmods.com/skyrimspecialedition/mods/201",
    "id": "bodyslide",
    "name": "BodySlide",
+   "description": "Builds body and outfit meshes.",
+   "homepage": "https://www.nexusmods.com/skyrimspecialedition/mods/201",
+   "found": null,
    "output": "generated-mod",
+   "agent_notes": "Built meshes go to the generated mod; rebuild after changing body or outfit mods.",
    "plugin": "github.com/enrell/loom/plugins/skyrimse"
   },
   {
-   "agent_notes": "Re-run after adding or removing animation mods; its output (generated mod) must stay enabled.",
-   "description": "Generates animation behavior files.",
-   "found": null,
-   "homepage": "https://www.nexusmods.com/skyrimspecialedition/mods/60033",
    "id": "nemesis",
    "name": "Nemesis Unlimited Behavior Engine",
+   "description": "Generates animation behavior files.",
+   "homepage": "https://www.nexusmods.com/skyrimspecialedition/mods/60033",
+   "found": null,
    "output": "generated-mod",
+   "agent_notes": "Re-run after adding or removing animation mods; its output (generated mod) must stay enabled.",
    "plugin": "github.com/enrell/loom/plugins/skyrimse"
   }
  ],
@@ -494,9 +494,9 @@
   {
    "lock": {
     "id": "github.com/enrell/loom/plugins/bannerlord",
+    "version": "0.1.0",
     "source": "path:C:\\Users\\you\\projects\\loom\\plugins\\bannerlord\\",
-    "sum": "sha256:e2c212e0d33cb68692703c05e725e942428e72fefb7a1863df695073abbc7084",
-    "version": "0.1.0"
+    "sum": "sha256:e2c212e0d33cb68692703c05e725e942428e72fefb7a1863df695073abbc7084"
    },
    "name": "Mount & Blade II: Bannerlord",
    "game": "bannerlord",
@@ -505,9 +505,9 @@
   {
    "lock": {
     "id": "github.com/enrell/loom/plugins/cyberpunk2077",
+    "version": "0.1.0",
     "source": "path:C:\\Users\\you\\projects\\loom\\plugins\\cyberpunk2077\\",
-    "sum": "sha256:64c564a03ad1024e8b0414e747b4395a36210e930b8a993a1ad7deef9aa0afac",
-    "version": "0.1.0"
+    "sum": "sha256:64c564a03ad1024e8b0414e747b4395a36210e930b8a993a1ad7deef9aa0afac"
    },
    "name": "Cyberpunk 2077",
    "game": "cyberpunk2077",
@@ -516,9 +516,9 @@
   {
    "lock": {
     "id": "github.com/enrell/loom/plugins/darkestdungeon",
+    "version": "0.1.0",
     "source": "path:C:\\Users\\you\\projects\\loom\\plugins\\darkestdungeon\\",
-    "sum": "sha256:4c52656bd622c8736e9be605e4e11029cf9ad4fcc9053114df311009950ae85e",
-    "version": "0.1.0"
+    "sum": "sha256:4c52656bd622c8736e9be605e4e11029cf9ad4fcc9053114df311009950ae85e"
    },
    "name": "Darkest Dungeon",
    "game": "darkestdungeon",
@@ -527,9 +527,9 @@
   {
    "lock": {
     "id": "github.com/enrell/loom/plugins/fallout3",
+    "version": "0.1.0",
     "source": "path:C:\\Users\\you\\projects\\loom\\plugins\\fallout3\\",
-    "sum": "sha256:3874666d6081bfe76764beab157dfe5d9f30d003bcc1867a562362fd030fc081",
-    "version": "0.1.0"
+    "sum": "sha256:3874666d6081bfe76764beab157dfe5d9f30d003bcc1867a562362fd030fc081"
    },
    "name": "Fallout 3",
    "game": "fallout3",
@@ -538,9 +538,9 @@
   {
    "lock": {
     "id": "github.com/enrell/loom/plugins/fallout4",
+    "version": "0.1.0",
     "source": "path:C:\\Users\\you\\projects\\loom\\plugins\\fallout4",
-    "sum": "sha256:3f7f6856a9778a4323408a9e55a5679420fe4bdf585f8937e9f141ca805e7c8a",
-    "version": "0.1.0"
+    "sum": "sha256:3f7f6856a9778a4323408a9e55a5679420fe4bdf585f8937e9f141ca805e7c8a"
    },
    "name": "Fallout 4",
    "game": "fallout4",
@@ -549,9 +549,9 @@
   {
    "lock": {
     "id": "github.com/enrell/loom/plugins/falloutnv",
+    "version": "0.1.0",
     "source": "path:C:\\Users\\you\\projects\\loom\\plugins\\falloutnv\\",
-    "sum": "sha256:ead4602619a385848fc9cd3f369ee1f1554c9952ccb5e0a8eb9a6850c1e0469e",
-    "version": "0.1.0"
+    "sum": "sha256:ead4602619a385848fc9cd3f369ee1f1554c9952ccb5e0a8eb9a6850c1e0469e"
    },
    "name": "Fallout: New Vegas",
    "game": "falloutnv",
@@ -560,9 +560,9 @@
   {
    "lock": {
     "id": "github.com/enrell/loom/plugins/hogwartslegacy",
+    "version": "0.1.0",
     "source": "path:C:\\Users\\you\\projects\\loom\\plugins\\hogwartslegacy\\",
-    "sum": "sha256:ff4717a6efbce64034d279e983e39b2fd86d96786c19a57ed3d7e41d8d5385e1",
-    "version": "0.1.0"
+    "sum": "sha256:ff4717a6efbce64034d279e983e39b2fd86d96786c19a57ed3d7e41d8d5385e1"
    },
    "name": "Hogwarts Legacy",
    "game": "hogwartslegacy",
@@ -571,9 +571,9 @@
   {
    "lock": {
     "id": "github.com/enrell/loom/plugins/kcd",
+    "version": "0.1.0",
     "source": "path:C:\\Users\\you\\projects\\loom\\plugins\\kcd\\",
-    "sum": "sha256:902d8849c38fd48f05d9519424c5b5130500256b692de6cf18ca0c511f4bb7ab",
-    "version": "0.1.0"
+    "sum": "sha256:902d8849c38fd48f05d9519424c5b5130500256b692de6cf18ca0c511f4bb7ab"
    },
    "name": "Kingdom Come: Deliverance",
    "game": "kcd",
@@ -582,9 +582,9 @@
   {
    "lock": {
     "id": "github.com/enrell/loom/plugins/oblivion",
+    "version": "0.1.0",
     "source": "path:C:\\Users\\you\\projects\\loom\\plugins\\oblivion\\",
-    "sum": "sha256:b42bd63887b7c2d1c63b58467d73992a61f59e44ba43814b6edea8277c2cb161",
-    "version": "0.1.0"
+    "sum": "sha256:b42bd63887b7c2d1c63b58467d73992a61f59e44ba43814b6edea8277c2cb161"
    },
    "name": "The Elder Scrolls IV: Oblivion",
    "game": "oblivion",
@@ -593,9 +593,9 @@
   {
    "lock": {
     "id": "github.com/enrell/loom/plugins/rimworld",
+    "version": "0.1.0",
     "source": "path:C:\\Users\\you\\projects\\loom\\plugins\\rimworld\\",
-    "sum": "sha256:ff42081c2638e1cac80af275a722936c3cbce8078a59b6b920fdd83c6bd74c13",
-    "version": "0.1.0"
+    "sum": "sha256:ff42081c2638e1cac80af275a722936c3cbce8078a59b6b920fdd83c6bd74c13"
    },
    "name": "RimWorld",
    "game": "rimworld",
@@ -604,9 +604,9 @@
   {
    "lock": {
     "id": "github.com/enrell/loom/plugins/skyrim",
+    "version": "0.1.0",
     "source": "path:C:\\Users\\you\\projects\\loom\\plugins\\skyrim\\",
-    "sum": "sha256:28e3f8a2d92ad3b0db9ef3593d7d659e40e83b4913233e6032f87481e2b3d01a",
-    "version": "0.1.0"
+    "sum": "sha256:28e3f8a2d92ad3b0db9ef3593d7d659e40e83b4913233e6032f87481e2b3d01a"
    },
    "name": "The Elder Scrolls V: Skyrim",
    "game": "skyrim",
@@ -615,9 +615,9 @@
   {
    "lock": {
     "id": "github.com/enrell/loom/plugins/skyrimse",
+    "version": "0.1.0",
     "source": "path:C:\\Users\\you\\projects\\loom\\plugins\\skyrimse",
-    "sum": "sha256:92131091663f6a6a39e2084d67d5a1968549ae4e4b86f9f36a0e523803a052e7",
-    "version": "0.1.0"
+    "sum": "sha256:92131091663f6a6a39e2084d67d5a1968549ae4e4b86f9f36a0e523803a052e7"
    },
    "name": "The Elder Scrolls V: Skyrim Special Edition",
    "game": "skyrimse",
@@ -626,9 +626,9 @@
   {
    "lock": {
     "id": "github.com/enrell/loom/plugins/stardewvalley",
+    "version": "0.1.0",
     "source": "path:C:\\Users\\you\\projects\\loom\\plugins\\stardewvalley\\",
-    "sum": "sha256:16ea51842e24e7d7c62b094d0d46b32c9f08d1788b00544b311af436a54eed64",
-    "version": "0.1.0"
+    "sum": "sha256:16ea51842e24e7d7c62b094d0d46b32c9f08d1788b00544b311af436a54eed64"
    },
    "name": "Stardew Valley",
    "game": "stardewvalley",
@@ -637,9 +637,9 @@
   {
    "lock": {
     "id": "github.com/enrell/loom/plugins/starfield",
+    "version": "0.1.0",
     "source": "path:C:\\Users\\you\\projects\\loom\\plugins\\starfield\\",
-    "sum": "sha256:7f85296e342df905cfccfcaba31911069c4859414a5fd3ebf887d9423a79681c",
-    "version": "0.1.0"
+    "sum": "sha256:7f85296e342df905cfccfcaba31911069c4859414a5fd3ebf887d9423a79681c"
    },
    "name": "Starfield",
    "game": "starfield",
@@ -648,9 +648,9 @@
   {
    "lock": {
     "id": "github.com/enrell/loom/plugins/valheim",
+    "version": "0.1.0",
     "source": "path:C:\\Users\\you\\projects\\loom\\plugins\\valheim\\",
-    "sum": "sha256:d697530f51cd574685a817230f79c49f366c9f0fc88cb2c43fa827d3263f321a",
-    "version": "0.1.0"
+    "sum": "sha256:d697530f51cd574685a817230f79c49f366c9f0fc88cb2c43fa827d3263f321a"
    },
    "name": "Valheim",
    "game": "valheim",
@@ -659,9 +659,9 @@
   {
    "lock": {
     "id": "github.com/enrell/loom/plugins/witcher3",
+    "version": "0.1.0",
     "source": "path:C:\\Users\\you\\projects\\loom\\plugins\\witcher3\\",
-    "sum": "sha256:b330c4be437ee410400e065b8d4874136438e0f8f88772843aabe0b7c5994127",
-    "version": "0.1.0"
+    "sum": "sha256:b330c4be437ee410400e065b8d4874136438e0f8f88772843aabe0b7c5994127"
    },
    "name": "The Witcher 3: Wild Hunt",
    "game": "witcher3",
@@ -670,73 +670,73 @@
  ],
  "market_search": [
   {
-   "description": "Game support for Mount & Blade II: Bannerlord: detection and mod layout (Modules/<mod>). Enable modules in the game launcher.",
+   "id": "github.com/enrell/loom/plugins/bannerlord",
+   "name": "Mount & Blade II: Bannerlord",
+   "kind": "game",
    "games": [
     "bannerlord"
    ],
-   "id": "github.com/enrell/loom/plugins/bannerlord",
-   "kind": "game",
-   "name": "Mount & Blade II: Bannerlord",
+   "description": "Game support for Mount & Blade II: Bannerlord: detection and mod layout (Modules/<mod>). Enable modules in the game launcher.",
    "tags": [
     "official"
    ],
    "versions": [
     {
+     "version": "0.1.0",
      "ref": "plugins/bannerlord/v0.1.0",
-     "reviewed": "2026-10-15",
-     "sum": "sha256:e2c212e0d33cb68692703c05e725e942428e72fefb7a1863df695073abbc7084",
-     "version": "0.1.0"
+     "sum": "sha256:24134aa2b199aea9ddbb13ebbbfd2d2ee1d0a7593b8ef993ba1ddd43a22177f1",
+     "reviewed": "2026-10-15"
     }
    ]
   },
   {
-   "description": "Game support for Cyberpunk 2077: detection and mod layout. Loose .archive files go to archive/pc/mod; frameworks (CET, RED4ext, redscript) keep their folders.",
+   "id": "github.com/enrell/loom/plugins/cyberpunk2077",
+   "name": "Cyberpunk 2077",
+   "kind": "game",
    "games": [
     "cyberpunk2077"
    ],
-   "id": "github.com/enrell/loom/plugins/cyberpunk2077",
-   "kind": "game",
-   "name": "Cyberpunk 2077",
+   "description": "Game support for Cyberpunk 2077: detection and mod layout. Loose .archive files go to archive/pc/mod; frameworks (CET, RED4ext, redscript) keep their folders.",
    "tags": [
     "official"
    ],
    "versions": [
     {
+     "version": "0.1.0",
      "ref": "plugins/cyberpunk2077/v0.1.0",
-     "reviewed": "2026-10-15",
-     "sum": "sha256:64c564a03ad1024e8b0414e747b4395a36210e930b8a993a1ad7deef9aa0afac",
-     "version": "0.1.0"
+     "sum": "sha256:cbaee3f0323c8755cabc92a364b192a826dc2db0c705ab029b67dc0aabc4a811",
+     "reviewed": "2026-10-15"
     }
    ]
   },
   {
-   "description": "Game support for Darkest Dungeon: detection and mod layout (mods/<mod>). ",
+   "id": "github.com/enrell/loom/plugins/darkestdungeon",
+   "name": "Darkest Dungeon",
+   "kind": "game",
    "games": [
     "darkestdungeon"
    ],
-   "id": "github.com/enrell/loom/plugins/darkestdungeon",
-   "kind": "game",
-   "name": "Darkest Dungeon",
+   "description": "Game support for Darkest Dungeon: detection and mod layout (mods/<mod>). ",
    "tags": [
     "official"
    ],
    "versions": [
     {
+     "version": "0.1.0",
      "ref": "plugins/darkestdungeon/v0.1.0",
-     "reviewed": "2026-10-15",
-     "sum": "sha256:4c52656bd622c8736e9be605e4e11029cf9ad4fcc9053114df311009950ae85e",
-     "version": "0.1.0"
+     "sum": "sha256:83d1e1c72bdc2bff08d559aca0c81a51d780cdb02fe35185a39c1dfb269ba8c9",
+     "reviewed": "2026-10-15"
     }
    ]
   },
   {
-   "description": "Game support for Fallout 3: detection, mod layout, load order, script extender and tools.",
+   "id": "github.com/enrell/loom/plugins/fallout3",
+   "name": "Fallout 3",
+   "kind": "game",
    "games": [
     "fallout3"
    ],
-   "id": "github.com/enrell/loom/plugins/fallout3",
-   "kind": "game",
-   "name": "Fallout 3",
+   "description": "Game support for Fallout 3: detection, mod layout, load order, script extender and tools.",
    "tags": [
     "official",
     "load-order",
@@ -744,21 +744,21 @@
    ],
    "versions": [
     {
+     "version": "0.1.0",
      "ref": "plugins/fallout3/v0.1.0",
-     "reviewed": "2026-10-15",
-     "sum": "sha256:3874666d6081bfe76764beab157dfe5d9f30d003bcc1867a562362fd030fc081",
-     "version": "0.1.0"
+     "sum": "sha256:06b70d29efbde8230857d3c2cc4b342ddabf511ce1829b4e0b49ff2264bcaa85",
+     "reviewed": "2026-10-15"
     }
    ]
   },
   {
-   "description": "Game support for Fallout 4: detection, mod layout, load order, script extender and tools.",
+   "id": "github.com/enrell/loom/plugins/fallout4",
+   "name": "Fallout 4",
+   "kind": "game",
    "games": [
     "fallout4"
    ],
-   "id": "github.com/enrell/loom/plugins/fallout4",
-   "kind": "game",
-   "name": "Fallout 4",
+   "description": "Game support for Fallout 4: detection, mod layout, load order, script extender and tools.",
    "tags": [
     "official",
     "load-order",
@@ -766,21 +766,21 @@
    ],
    "versions": [
     {
+     "version": "0.1.0",
      "ref": "plugins/fallout4/v0.1.0",
-     "reviewed": "2026-10-15",
-     "sum": "sha256:38cdf06c0d77f36a44defa4b16eb77ee6a4d7d95b252e57982d77dc2d17c530b",
-     "version": "0.1.0"
+     "sum": "sha256:8721b9c76efa18d359005ff065882f3386bf508234cc86aac6bb0a6764d7d753",
+     "reviewed": "2026-10-15"
     }
    ]
   },
   {
-   "description": "Game support for Fallout: New Vegas: detection, mod layout, load order, script extender and tools.",
+   "id": "github.com/enrell/loom/plugins/falloutnv",
+   "name": "Fallout: New Vegas",
+   "kind": "game",
    "games": [
     "falloutnv"
    ],
-   "id": "github.com/enrell/loom/plugins/falloutnv",
-   "kind": "game",
-   "name": "Fallout: New Vegas",
+   "description": "Game support for Fallout: New Vegas: detection, mod layout, load order, script extender and tools.",
    "tags": [
     "official",
     "load-order",
@@ -788,61 +788,61 @@
    ],
    "versions": [
     {
+     "version": "0.1.0",
      "ref": "plugins/falloutnv/v0.1.0",
-     "reviewed": "2026-10-15",
-     "sum": "sha256:ead4602619a385848fc9cd3f369ee1f1554c9952ccb5e0a8eb9a6850c1e0469e",
-     "version": "0.1.0"
+     "sum": "sha256:6cada1265cf78d8c7de008a238ce8d35c816d1b423d04796cad6d923b94f91f4",
+     "reviewed": "2026-10-15"
     }
    ]
   },
   {
-   "description": "Game support for Hogwarts Legacy: detection and mod layout. Pak mods go to Phoenix/Content/Paks/~mods.",
+   "id": "github.com/enrell/loom/plugins/hogwartslegacy",
+   "name": "Hogwarts Legacy",
+   "kind": "game",
    "games": [
     "hogwartslegacy"
    ],
-   "id": "github.com/enrell/loom/plugins/hogwartslegacy",
-   "kind": "game",
-   "name": "Hogwarts Legacy",
+   "description": "Game support for Hogwarts Legacy: detection and mod layout. Pak mods go to Phoenix/Content/Paks/~mods.",
    "tags": [
     "official"
    ],
    "versions": [
     {
+     "version": "0.1.0",
      "ref": "plugins/hogwartslegacy/v0.1.0",
-     "reviewed": "2026-10-15",
-     "sum": "sha256:ff4717a6efbce64034d279e983e39b2fd86d96786c19a57ed3d7e41d8d5385e1",
-     "version": "0.1.0"
+     "sum": "sha256:79df3bbd328291535ca46aae0aa93b3f07917293b2b1f1690b41f57413ee8857",
+     "reviewed": "2026-10-15"
     }
    ]
   },
   {
-   "description": "Game support for Kingdom Come: Deliverance: detection and mod layout (Mods/<mod>). ",
+   "id": "github.com/enrell/loom/plugins/kcd",
+   "name": "Kingdom Come: Deliverance",
+   "kind": "game",
    "games": [
     "kcd"
    ],
-   "id": "github.com/enrell/loom/plugins/kcd",
-   "kind": "game",
-   "name": "Kingdom Come: Deliverance",
+   "description": "Game support for Kingdom Come: Deliverance: detection and mod layout (Mods/<mod>). ",
    "tags": [
     "official"
    ],
    "versions": [
     {
+     "version": "0.1.0",
      "ref": "plugins/kcd/v0.1.0",
-     "reviewed": "2026-10-15",
-     "sum": "sha256:902d8849c38fd48f05d9519424c5b5130500256b692de6cf18ca0c511f4bb7ab",
-     "version": "0.1.0"
+     "sum": "sha256:2952d5ab9db40fa41c84af65ebdc250d53ea2dd559914734060ceae7fd7b6b64",
+     "reviewed": "2026-10-15"
     }
    ]
   },
   {
-   "description": "Game support for The Elder Scrolls IV: Oblivion: detection, mod layout, load order, script extender and tools.",
+   "id": "github.com/enrell/loom/plugins/oblivion",
+   "name": "The Elder Scrolls IV: Oblivion",
+   "kind": "game",
    "games": [
     "oblivion"
    ],
-   "id": "github.com/enrell/loom/plugins/oblivion",
-   "kind": "game",
-   "name": "The Elder Scrolls IV: Oblivion",
+   "description": "Game support for The Elder Scrolls IV: Oblivion: detection, mod layout, load order, script extender and tools.",
    "tags": [
     "official",
     "load-order",
@@ -850,41 +850,41 @@
    ],
    "versions": [
     {
+     "version": "0.1.0",
      "ref": "plugins/oblivion/v0.1.0",
-     "reviewed": "2026-10-15",
-     "sum": "sha256:b42bd63887b7c2d1c63b58467d73992a61f59e44ba43814b6edea8277c2cb161",
-     "version": "0.1.0"
+     "sum": "sha256:35cdc93bb7a30d3a1bd6156accc6b94305305b9d56927f60c5b3978657466c10",
+     "reviewed": "2026-10-15"
     }
    ]
   },
   {
-   "description": "Game support for RimWorld: detection and mod layout (Mods/<mod>). Activate mods in the game's Mods menu.",
+   "id": "github.com/enrell/loom/plugins/rimworld",
+   "name": "RimWorld",
+   "kind": "game",
    "games": [
     "rimworld"
    ],
-   "id": "github.com/enrell/loom/plugins/rimworld",
-   "kind": "game",
-   "name": "RimWorld",
+   "description": "Game support for RimWorld: detection and mod layout (Mods/<mod>). Activate mods in the game's Mods menu.",
    "tags": [
     "official"
    ],
    "versions": [
     {
+     "version": "0.1.0",
      "ref": "plugins/rimworld/v0.1.0",
-     "reviewed": "2026-10-15",
-     "sum": "sha256:ff42081c2638e1cac80af275a722936c3cbce8078a59b6b920fdd83c6bd74c13",
-     "version": "0.1.0"
+     "sum": "sha256:2d76d76f60ac10b98cb5399f98c85d346f993baf39b160e535ccf1944864ecff",
+     "reviewed": "2026-10-15"
     }
    ]
   },
   {
-   "description": "Game support for The Elder Scrolls V: Skyrim: detection, mod layout, load order, script extender and tools.",
+   "id": "github.com/enrell/loom/plugins/skyrim",
+   "name": "The Elder Scrolls V: Skyrim",
+   "kind": "game",
    "games": [
     "skyrim"
    ],
-   "id": "github.com/enrell/loom/plugins/skyrim",
-   "kind": "game",
-   "name": "The Elder Scrolls V: Skyrim",
+   "description": "Game support for The Elder Scrolls V: Skyrim: detection, mod layout, load order, script extender and tools.",
    "tags": [
     "official",
     "load-order",
@@ -892,21 +892,21 @@
    ],
    "versions": [
     {
+     "version": "0.1.0",
      "ref": "plugins/skyrim/v0.1.0",
-     "reviewed": "2026-10-15",
-     "sum": "sha256:28e3f8a2d92ad3b0db9ef3593d7d659e40e83b4913233e6032f87481e2b3d01a",
-     "version": "0.1.0"
+     "sum": "sha256:9d7bbb1fff59a653b5e964e2a1ff19513e61be5a794c5130b43ab94e2dd01e90",
+     "reviewed": "2026-10-15"
     }
    ]
   },
   {
-   "description": "Game support for The Elder Scrolls V: Skyrim Special Edition: detection, mod layout, load order, script extender and tools.",
+   "id": "github.com/enrell/loom/plugins/skyrimse",
+   "name": "The Elder Scrolls V: Skyrim Special Edition",
+   "kind": "game",
    "games": [
     "skyrimse"
    ],
-   "id": "github.com/enrell/loom/plugins/skyrimse",
-   "kind": "game",
-   "name": "The Elder Scrolls V: Skyrim Special Edition",
+   "description": "Game support for The Elder Scrolls V: Skyrim Special Edition: detection, mod layout, load order, script extender and tools.",
    "tags": [
     "official",
     "load-order",
@@ -914,41 +914,41 @@
    ],
    "versions": [
     {
+     "version": "0.1.0",
      "ref": "plugins/skyrimse/v0.1.0",
-     "reviewed": "2026-10-15",
-     "sum": "sha256:aebed496954565c4d6b8e516fa2ddfeb677f71771bea46aa010f8ed615fea64c",
-     "version": "0.1.0"
+     "sum": "sha256:bdd889ec48a5dab0ee113f11404696e14c2d7085f7e081b831e6bdc1a20081cd",
+     "reviewed": "2026-10-15"
     }
    ]
   },
   {
-   "description": "Game support for Stardew Valley: detection and mod layout (Mods/<mod>). Mods run through SMAPI.",
+   "id": "github.com/enrell/loom/plugins/stardewvalley",
+   "name": "Stardew Valley",
+   "kind": "game",
    "games": [
     "stardewvalley"
    ],
-   "id": "github.com/enrell/loom/plugins/stardewvalley",
-   "kind": "game",
-   "name": "Stardew Valley",
+   "description": "Game support for Stardew Valley: detection and mod layout (Mods/<mod>). Mods run through SMAPI.",
    "tags": [
     "official"
    ],
    "versions": [
     {
+     "version": "0.1.0",
      "ref": "plugins/stardewvalley/v0.1.0",
-     "reviewed": "2026-10-15",
-     "sum": "sha256:16ea51842e24e7d7c62b094d0d46b32c9f08d1788b00544b311af436a54eed64",
-     "version": "0.1.0"
+     "sum": "sha256:1bb92430a992cb039cfd8a1bc14b5b8242d96fc3389ae11180d881ce02afe50d",
+     "reviewed": "2026-10-15"
     }
    ]
   },
   {
-   "description": "Game support for Starfield: detection, mod layout, load order, script extender and tools.",
+   "id": "github.com/enrell/loom/plugins/starfield",
+   "name": "Starfield",
+   "kind": "game",
    "games": [
     "starfield"
    ],
-   "id": "github.com/enrell/loom/plugins/starfield",
-   "kind": "game",
-   "name": "Starfield",
+   "description": "Game support for Starfield: detection, mod layout, load order, script extender and tools.",
    "tags": [
     "official",
     "load-order",
@@ -956,53 +956,125 @@
    ],
    "versions": [
     {
+     "version": "0.1.0",
      "ref": "plugins/starfield/v0.1.0",
-     "reviewed": "2026-10-15",
-     "sum": "sha256:7f85296e342df905cfccfcaba31911069c4859414a5fd3ebf887d9423a79681c",
-     "version": "0.1.0"
+     "sum": "sha256:2be5a28c872ad18956cc4060e9c572943839399451ec0f175f3e25504d20e48e",
+     "reviewed": "2026-10-15"
     }
    ]
   },
   {
-   "description": "Game support for Valheim: detection and mod layout. BepInEx plugins go to BepInEx/plugins; install BepInEx itself as a mod first.",
+   "id": "github.com/enrell/loom/plugins/valheim",
+   "name": "Valheim",
+   "kind": "game",
    "games": [
     "valheim"
    ],
-   "id": "github.com/enrell/loom/plugins/valheim",
-   "kind": "game",
-   "name": "Valheim",
+   "description": "Game support for Valheim: detection and mod layout. BepInEx plugins go to BepInEx/plugins; install BepInEx itself as a mod first.",
    "tags": [
     "official"
    ],
    "versions": [
     {
+     "version": "0.1.0",
      "ref": "plugins/valheim/v0.1.0",
-     "reviewed": "2026-10-15",
-     "sum": "sha256:d697530f51cd574685a817230f79c49f366c9f0fc88cb2c43fa827d3263f321a",
-     "version": "0.1.0"
+     "sum": "sha256:07ad2c95f56cc1c265c9a7aae2f8dc87b778365d556c463510df60a4ee54156c",
+     "reviewed": "2026-10-15"
     }
    ]
   },
   {
-   "description": "Game support for The Witcher 3: Wild Hunt: detection and mod layout (Mods/<mod>). ",
+   "id": "github.com/enrell/loom/plugins/witcher3",
+   "name": "The Witcher 3: Wild Hunt",
+   "kind": "game",
    "games": [
     "witcher3"
    ],
-   "id": "github.com/enrell/loom/plugins/witcher3",
-   "kind": "game",
-   "name": "The Witcher 3: Wild Hunt",
+   "description": "Game support for The Witcher 3: Wild Hunt: detection and mod layout (Mods/<mod>). ",
    "tags": [
     "official",
     "tools"
    ],
    "versions": [
     {
+     "version": "0.1.0",
      "ref": "plugins/witcher3/v0.1.0",
-     "reviewed": "2026-10-15",
-     "sum": "sha256:b330c4be437ee410400e065b8d4874136438e0f8f88772843aabe0b7c5994127",
-     "version": "0.1.0"
+     "sum": "sha256:669124fd9a18a62c6afdf9d4e6bd712ba66b556cd6e8253af6e5c4f8fb150228",
+     "reviewed": "2026-10-15"
     }
    ]
+  }
+ ],
+ "agents_list": [
+  {
+   "id": "claude-code",
+   "name": "Claude Code",
+   "installed": true,
+   "mcp": false,
+   "skill": false,
+   "config_path": "C:\\Users\\you\\.claude.json",
+   "homepage": "https://claude.com/claude-code",
+   "install": "npm install -g @anthropic-ai/claude-code"
+  },
+  {
+   "id": "claude-desktop",
+   "name": "Claude Desktop",
+   "installed": true,
+   "mcp": false,
+   "skill": null,
+   "config_path": "C:\\Users\\you\\AppData\\Roaming\\Claude\\claude_desktop_config.json",
+   "homepage": "https://claude.ai/download",
+   "install": "winget install Anthropic.Claude"
+  },
+  {
+   "id": "codex",
+   "name": "Codex CLI",
+   "installed": false,
+   "mcp": false,
+   "skill": false,
+   "config_path": "C:\\Users\\you\\.codex\\config.toml",
+   "homepage": "https://developers.openai.com/codex/cli",
+   "install": "npm install -g @openai/codex"
+  },
+  {
+   "id": "cursor",
+   "name": "Cursor",
+   "installed": true,
+   "mcp": false,
+   "skill": null,
+   "config_path": "C:\\Users\\you\\.cursor\\mcp.json",
+   "homepage": "https://cursor.com/download",
+   "install": "winget install Anysphere.Cursor"
+  },
+  {
+   "id": "vscode",
+   "name": "VS Code (Copilot)",
+   "installed": false,
+   "mcp": false,
+   "skill": null,
+   "config_path": "C:\\Users\\you\\AppData\\Roaming\\Code\\User\\mcp.json",
+   "homepage": "https://code.visualstudio.com",
+   "install": "winget install Microsoft.VisualStudioCode"
+  },
+  {
+   "id": "opencode",
+   "name": "OpenCode",
+   "installed": true,
+   "mcp": false,
+   "skill": null,
+   "config_path": "C:\\Users\\you\\.config\\opencode\\opencode.json",
+   "homepage": "https://opencode.ai",
+   "install": "npm install -g opencode-ai"
+  },
+  {
+   "id": "gemini",
+   "name": "Gemini CLI",
+   "installed": false,
+   "mcp": false,
+   "skill": null,
+   "config_path": "C:\\Users\\you\\.gemini\\settings.json",
+   "homepage": "https://github.com/google-gemini/gemini-cli",
+   "install": "npm install -g @google/gemini-cli"
   }
  ],
  "settings": {
@@ -1010,6 +1082,7 @@
   "launch_mode": null,
   "marketplace": "github.com/enrell/loom/marketplace",
   "mount_available": true,
-  "home": "C:\\Users\\you\\AppData\\Local\\Loom"
+  "home": "C:\\Users\\you\\AppData\\Local\\Loom",
+  "agents_wizard_seen": true
  }
 }

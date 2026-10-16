@@ -59,17 +59,28 @@ loom nxm "nxm://skyrimspecialedition/mods/12604/files/…"   # Nexus download + 
 
 Add `--json` to any command for machine-readable output.
 
-### Agents (MCP)
+### Agents (MCP + skill)
 
-Point your MCP client at `loom mcp` (stdio). Example for Claude Desktop / Cursor:
+On first launch the desktop app offers a wizard that connects the AI coding
+agents you have — Claude Code, Claude Desktop, Codex CLI, Cursor, VS Code
+(Copilot), OpenCode, Gemini CLI — to Loom: it registers Loom's MCP server in each
+one's config (merging, with a one-time backup) and installs the Loom skill in
+agents that read [Agent Skills](https://agentskills.io). Agents you install later
+are added from **Settings → AI agents**. From the command line:
 
-```json
-{ "mcpServers": { "loom": { "command": "loom", "args": ["mcp"] } } }
+```
+loom agents list                # installed agents and whether Loom is set up
+loom agents setup --all         # or: loom agents setup claude-code codex
+loom agents remove cursor
+loom agents skill <dir>         # write the skill folder, e.g. to upload elsewhere
 ```
 
+Any other MCP client can run `loom mcp` (or `loom-desktop.exe mcp`) on stdio.
 The agent gets typed tools (`loom_mods`, `loom_load_order_sort`, `loom_doctor`,
-`loom_market_install`, `loom_tool_run`, …) and is told to fix setups by running
+`loom_market_install`, `loom_tool_run`, …) and fixes setups by running
 `loom_doctor`, applying fixes, and checking again.
+
+![Agent setup](docs/screenshots/agents-wizard-choose.png)
 
 ## Building
 

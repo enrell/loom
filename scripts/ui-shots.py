@@ -17,7 +17,7 @@ import time
 
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 DIST = ROOT / "apps" / "desktop" / "dist-mock"
-PAGES = ["mods", "order", "problems", "tools", "plugins", "downloads", "settings", "add-game"]
+PAGES = ["mods", "order", "problems", "tools", "plugins", "downloads", "settings", "add-game", "agents-wizard", "agents-wizard-choose"]
 EDGE = [
     r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe",
     r"C:\Program Files\Microsoft\Edge\Application\msedge.exe",

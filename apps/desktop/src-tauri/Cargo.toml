@@ -11,6 +11,7 @@ tauri-build = { version = "2", features = [] }
 
 [dependencies]
 loom-core = { path = "../../../crates/loom-core" }
+loom-mcp = { path = "../../../crates/loom-mcp" }
 # `unstable` enables a second webview in the window (the embedded Nexus browser).
 tauri = { version = "2", features = ["unstable"] }
 tauri-plugin-single-instance = "2"

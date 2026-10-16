@@ -24,7 +24,9 @@ export interface Problem { severity: "error" | "warning" | "info"; code: string;
 export interface ToolInfo { id: string; name: string; description: string; homepage?: string; found?: string; output: string; agent_notes: string; plugin: string }
 export interface InstalledPlugin { lock: Locked; name: string; game?: string; tools: number }
 export interface MarketEntry { id: string; name: string; kind: string; games: string[]; description: string; tags: string[]; versions: { version: string; ref: string; sum: string; reviewed: string }[] }
-export interface Settings { nexus_api_key_set: boolean; launch_mode?: string; marketplace: string; mount_available: boolean; home: string }
+export interface Settings { nexus_api_key_set: boolean; launch_mode?: string; marketplace: string; mount_available: boolean; home: string; agents_wizard_seen: boolean }
+export interface Agent { id: string; name: string; installed: boolean; mcp: boolean; skill: boolean | null; config_path: string; homepage: string; install: string }
+export interface AgentResult { id: string; ok: boolean; error?: string; report?: { config_path: string; skill_path?: string; via_cli: boolean; backup?: string } }
 
 export const api = {
   library: () => invoke<Library>("library"),
@@ -55,6 +57,11 @@ export const api = {
   pluginRemove: (id: string) => invoke<boolean>("plugin_remove", { id }),
   settings: () => invoke<Settings>("settings"),
   settingsSet: (key: string, value: string | null) => invoke("settings_set", { key, value }),
+  agentsList: () => invoke<Agent[]>("agents_list"),
+  agentsSetup: (ids: string[]) => invoke<AgentResult[]>("agents_setup", { ids }),
+  agentsRemove: (id: string) => invoke("agents_remove", { id }),
+  agentsExportSkill: (dir: string) => invoke<string>("agents_export_skill", { dir }),
+  agentsWizardSeen: () => invoke("agents_wizard_seen"),
   nxmDownload: (url: string) => invoke("nxm_download", { url }),
   takeNxm: () => invoke<string[]>("take_nxm"),
   startPage: () => invoke<string | null>("start_page"),

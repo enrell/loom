@@ -1,5 +1,6 @@
 import { api } from "../api";
 import { attempt, esc, toast } from "../dom";
+import { renderAgentsCard } from "../agents";
 import type { Page } from "../state";
 
 export const settingsPage: Page = {
@@ -30,8 +31,9 @@ export const settingsPage: Page = {
           ${s.mount_available ? "" : `<div class="dim" style="margin-top:8px">Install WinFsp for the most compatible mode: <span class="mono">winget install WinFsp.WinFsp</span></div>`}
         </div>
         <div class="card"><h3>Library</h3><div class="kv"><span class="k">Folder</span><span class="mono">${esc(s.home)}</span><span class="k">Marketplace</span><span class="mono">${esc(s.marketplace)}</span></div></div>
-        <div class="card"><h3>Agents</h3><div class="dim">Connect an AI agent (Claude, Cursor, VS Code…) with the MCP server: command <span class="mono">loom mcp</span>. It gets the same powers you have here, plus <span class="mono">loom_doctor</span> to find and fix problems.</div></div>
+        <div class="card" id="agents-card"></div>
       </div>`;
+    renderAgentsCard(el.querySelector<HTMLElement>("#agents-card")!);
     const mode = el.querySelector<HTMLSelectElement>("#mode")!;
     mode.value = s.launch_mode ?? "auto";
     mode.addEventListener("change", async () => { await attempt(() => api.settingsSet("launch_mode", mode.value)); toast("Saved", "ok"); });

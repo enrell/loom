@@ -248,6 +248,7 @@ async fn settings(app: State<'_, App>) -> Res<Value> {
         "launch_mode": l.config.launch_mode,
         "marketplace": l.config.marketplace.clone().unwrap_or_else(|| loom_core::marketplace::DEFAULT.into()),
         "mount_available": loom_core::launch::mount_available(),
+        "agents_wizard_seen": l.config.agents_wizard_seen,
         "home": l.home(),
     }))
 }
@@ -262,6 +263,50 @@ async fn settings_set(app: State<'_, App>, key: String, value: Option<String>) -
         "marketplace" => l.config.marketplace = v,
         _ => return Err(format!("unknown setting {key}")),
     }
+    l.save_config().map_err(s)
+}
+
+// ---------------------------------------------------------------- AI agents
+
+#[tauri::command]
+async fn agents_list() -> Res<Value> {
+    json(loom_core::agents::list(&loom_core::agents::AgentEnv::system()))
+}
+
+/// Registers Loom in each agent; one result per agent so a failure in one
+/// doesn't hide the others. The MCP server is this executable (`… mcp`).
+#[tauri::command]
+async fn agents_setup(app: State<'_, App>, ids: Vec<String>) -> Res<Value> {
+    let exe = std::env::current_exe().map_err(s)?;
+    let mcp = loom_core::agents::McpCommand::for_exe(exe, &app.home);
+    let env = loom_core::agents::AgentEnv::system();
+    blocking(move || {
+        Ok(Value::Array(
+            ids.iter()
+                .map(|id| match loom_core::agents::setup(&env, id, &mcp) {
+                    Ok(r) => json!({ "id": id, "ok": true, "report": r }),
+                    Err(e) => json!({ "id": id, "ok": false, "error": e.to_string() }),
+                })
+                .collect(),
+        ))
+    })
+    .await
+}
+
+#[tauri::command]
+async fn agents_remove(id: String) -> Res<()> {
+    loom_core::agents::remove(&loom_core::agents::AgentEnv::system(), &id).map_err(s)
+}
+
+#[tauri::command]
+async fn agents_export_skill(dir: String) -> Res<String> {
+    loom_core::agents::export_skill(std::path::Path::new(&dir)).map(|p| p.display().to_string()).map_err(s)
+}
+
+#[tauri::command]
+async fn agents_wizard_seen(app: State<'_, App>) -> Res<()> {
+    let mut l = loom(&app)?;
+    l.config.agents_wizard_seen = true;
     l.save_config().map_err(s)
 }
 
@@ -375,6 +420,18 @@ async fn browser_eval(window: Window, js: String) -> Res<()> {
 
 fn main() {
     let home = loom_core::paths::default_home();
+    // `loom-desktop mcp`: AI agents start this executable as Loom's MCP
+    // server (stdio), so the app needs no separate CLI to be agent-ready.
+    if std::env::args().nth(1).as_deref() == Some("mcp") {
+        let code = match Loom::open(&home).map_err(s).and_then(|l| loom_mcp::serve_stdio(&l).map_err(s)) {
+            Ok(()) => 0,
+            Err(e) => {
+                eprintln!("loom mcp: {e}");
+                1
+            }
+        };
+        std::process::exit(code);
+    }
     tauri::Builder::default()
         .plugin(tauri_plugin_single_instance::init(|app, argv, _cwd| {
             for url in nxm_args(argv) {
@@ -440,6 +497,11 @@ fn main() {
             plugin_remove,
             settings,
             settings_set,
+            agents_list,
+            agents_setup,
+            agents_remove,
+            agents_export_skill,
+            agents_wizard_seen,
             nxm_download,
             take_nxm,
             start_page,

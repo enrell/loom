@@ -1,6 +1,7 @@
 import "./style.css";
 import { listen as tauriListen } from "@tauri-apps/api/event";
 import { mockListen } from "./mock";
+import { openAgentWizard } from "./agents";
 import { api } from "./api";
 import { toast } from "./dom";
 import { rerender, startNxm } from "./pages/downloads";
@@ -56,7 +57,14 @@ async function boot(): Promise<void> {
   else await go(lib.plugins ? "add-game" : "plugins");
 
   const start = await api.startPage();
-  if (start) await go(start as PageId);
+  if (start === "agents-wizard" || start === "agents-wizard-choose") {
+    openAgentWizard(start.endsWith("choose") ? 1 : 0);
+  } else if (start) {
+    await go(start as PageId);
+  } else if (!(await api.settings()).agents_wizard_seen) {
+    // First launch: offer to connect AI agents (once; Settings has it later).
+    setTimeout(() => openAgentWizard(), 600);
+  }
   for (const url of await api.takeNxm()) startNxm(url);
 }
 

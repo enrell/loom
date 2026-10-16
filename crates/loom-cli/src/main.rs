@@ -79,6 +79,9 @@ enum Command {
     /// Read or change settings (nexus_api_key, openvfs_dir, launch_mode, marketplace, tool_paths).
     #[command(subcommand)]
     Config(ConfigCmd),
+    /// Connect AI coding agents (Claude Code, Codex, Cursor, …) to Loom: MCP server + skill.
+    #[command(subcommand)]
+    Agents(AgentsCmd),
     /// Run the MCP server on stdio (for AI agents).
     Mcp,
 }
@@ -257,6 +260,24 @@ enum ToolCmd {
 enum OverwriteCmd {
     /// Move the overwrite folder's files into a mod.
     ToMod { game: String, name: String },
+}
+
+#[derive(Subcommand)]
+enum AgentsCmd {
+    /// Known agents: installed or not, and whether Loom is set up in each.
+    List,
+    /// Register Loom's MCP server (and skill) in agents.
+    Setup {
+        /// Agent ids (see `loom agents list`).
+        ids: Vec<String>,
+        /// Every installed agent.
+        #[arg(long)]
+        all: bool,
+    },
+    /// Remove Loom's MCP server and skill from an agent.
+    Remove { id: String },
+    /// Write the Loom skill folder (<dir>/loom/SKILL.md), e.g. to upload elsewhere.
+    Skill { dir: PathBuf },
 }
 
 #[derive(Subcommand)]
@@ -723,6 +744,74 @@ fn run(cli: Cli) -> loom_core::Result<Out> {
                 None => format!("downloaded {}", r.archive.display()),
             };
             Out::new(&r, text)
+        }
+
+        Command::Agents(cmd) => {
+            use loom_core::agents::{self, AgentEnv, McpCommand};
+            let env = AgentEnv::system();
+            match cmd {
+                AgentsCmd::List => {
+                    let list = agents::list(&env);
+                    let text = list
+                        .iter()
+                        .map(|a| {
+                            let state = if !a.installed {
+                                format!("not installed — {}", a.install)
+                            } else if a.mcp {
+                                format!("set up{}", if a.skill == Some(false) { " (skill missing)" } else { "" })
+                            } else {
+                                "installed, not set up".into()
+                            };
+                            format!("{:<15} {:<20} {state}", a.id, a.name)
+                        })
+                        .collect::<Vec<_>>()
+                        .join(
+                            "
+",
+                        );
+                    Out::new(&list, text)
+                }
+                AgentsCmd::Setup { ids, all } => {
+                    let ids: Vec<String> = if all {
+                        agents::list(&env).into_iter().filter(|a| a.installed).map(|a| a.id.to_owned()).collect()
+                    } else {
+                        ids
+                    };
+                    if ids.is_empty() {
+                        return Err(Error::invalid("name agents to set up (see `loom agents list`) or pass --all"));
+                    }
+                    let exe = std::env::current_exe()
+                        .map_err(|e| Error::Io { context: "finding loom.exe".into(), source: e })?;
+                    let mcp = McpCommand::for_exe(exe, loom.home());
+                    let mut reports = Vec::new();
+                    let mut lines = Vec::new();
+                    for id in &ids {
+                        let r = agents::setup(&env, id, &mcp)?;
+                        lines.push(format!(
+                            "{id}: MCP server registered in {}{}",
+                            r.config_path.display(),
+                            r.skill_path.as_ref().map(|p| format!("; skill in {}", p.display())).unwrap_or_default()
+                        ));
+                        reports.push(r);
+                    }
+                    lines.push("Restart the agents to pick up Loom.".into());
+                    Out::new(
+                        &reports,
+                        lines.join(
+                            "
+",
+                        ),
+                    )
+                }
+                AgentsCmd::Remove { id } => {
+                    agents::remove(&env, &id)?;
+                    Out::ok(format!("removed Loom from {id}"))
+                }
+                AgentsCmd::Skill { dir } => {
+                    let p = agents::export_skill(&dir)?;
+                    Out::new(json!({ "path": p }), format!("wrote {}", p.display()))
+                }
+            }
         }
 
         Command::Config(cmd) => match cmd {

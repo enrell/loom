@@ -7,6 +7,7 @@
 //! [`Loom`] is the entry point; [`Game`] carries every per-game operation.
 //! The CLI, the MCP server and the desktop app are thin layers over them.
 
+pub mod agents;
 pub mod archive;
 pub mod config;
 pub mod detect;

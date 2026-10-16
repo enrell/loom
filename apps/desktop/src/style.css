@@ -154,3 +154,20 @@ select.input { padding-right: 28px; cursor: pointer; }
 .toast { background: var(--panel-2); border: 1px solid var(--border); border-left: 3px solid var(--accent); border-radius: var(--radius); padding: 10px 14px; max-width: 420px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.35); }
 .toast.error { border-left-color: var(--danger); }
 .toast.ok { border-left-color: var(--ok); }
+
+/* agent setup wizard */
+.wizard { width: 640px; }
+.wizard p { line-height: 1.5; }
+.steps { display: flex; gap: 18px; margin-bottom: 16px; color: var(--faint); font-size: 12px; }
+.steps .on { color: var(--accent); font-weight: 600; }
+.steps .done { color: var(--muted); }
+.bullets { margin: 10px 0; padding-left: 18px; line-height: 1.6; }
+.bullets li + li { margin-top: 6px; }
+.agent-list { display: flex; flex-direction: column; gap: 8px; margin: 14px 0 4px; }
+.agent { display: flex; gap: 12px; align-items: flex-start; padding: 10px 12px; border: 1px solid var(--border); border-radius: var(--radius); background: var(--panel-2); cursor: pointer; }
+.agent input { margin-top: 3px; accent-color: var(--accent); }
+.agent.missing { cursor: default; opacity: 0.85; }
+.examples { display: flex; flex-direction: column; gap: 6px; align-items: flex-start; }
+.examples .btn { white-space: normal; text-align: left; height: auto; padding: 6px 10px; }
+.modal .actions .spacer { flex: 1; }
+.btn[disabled] { opacity: 0.55; pointer-events: none; }

@@ -26,6 +26,9 @@ pub struct Config {
     /// hook), `mount` or `hook`.
     #[serde(skip_serializing_if = "Option::is_none")]
     pub launch_mode: Option<String>,
+    /// The desktop app already offered the AI-agent setup wizard.
+    #[serde(skip_serializing_if = "std::ops::Not::not")]
+    pub agents_wizard_seen: bool,
 }
 
 impl Config {
