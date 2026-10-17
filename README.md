@@ -94,6 +94,26 @@ cargo test --workspace                  # core, CLI, MCP (+ an end-to-end test)
 cd apps/desktop && npm ci && npx tauri build
 ```
 
+### Installing from source
+
+The install scripts build this checkout (cloning openvfs next to it if needed)
+and install Loom for your user, with no admin or root needed:
+
+```
+.\scripts\install.ps1              # Windows: %LOCALAPPDATA%\Programs\Loom, PATH, Start menu, Apps & features
+scripts/install.sh                 # Linux: ~/.local/bin + app launcher entry and icons
+```
+
+Run the script again with `-Update` / `--update` to pull loom and openvfs and
+rebuild only if something changed. Updating works while Loom is open: the new
+binaries take effect the next time it starts. `-Nxm` / `--nxm` makes Loom the
+handler for Nexus "Mod Manager Download" links, and uninstalling gives those
+links back to the previous handler. `-CliOnly` / `--cli-only` skips the desktop
+app, and `-Uninstall` / `--uninstall` removes everything except your mod
+library. On Linux the desktop app needs WebKitGTK
+([Tauri prerequisites](https://v2.tauri.app/start/prerequisites/#linux)), and
+launching games is still Windows-only.
+
 Headless UI work: `npm run build:mock` serves the UI with recorded data, and
 `python scripts/ui-shots.py` screenshots every screen with headless Edge.
 
